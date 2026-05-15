@@ -226,9 +226,9 @@ export default function App() {
       </nav>
 
       {/* HERO */}
-      <section style={{ position: 'relative', overflow: 'hidden', padding: '88px 32px 64px', textAlign: 'center' }}>
+      <section style={{ position: 'relative', overflow: 'hidden', padding: '140px 32px 80px', textAlign: 'center' }}>
         <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse 600px 400px at 50% 40%, ${ACCENT}15, transparent 70%)`, pointerEvents: 'none' }} />
-        <div style={{ position: 'relative', maxWidth: 600, margin: '0 auto' }}>
+        <div style={{ position: 'relative', maxWidth: 640, margin: '0 auto' }}>
           <div className="fade-up" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: ACCENT, background: ACCENTB, padding: '5px 14px', borderRadius: 100, marginBottom: 28 }}>
             <i className="ti ti-sparkles" style={{ fontSize: 11 }} />
             99.5% accurate transcription
