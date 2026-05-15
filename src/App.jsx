@@ -1,17 +1,17 @@
 import { useState } from "react";
 
 const SANS  = "'Inter', -apple-system, BlinkMacSystemFont, sans-serif";
-const BG    = '#11100E';
-const SURF  = '#1A1816';
-const SURF2 = '#211F1D';
+const BG    = '#000000';
+const SURF  = '#0A0A0A';
+const SURF2 = '#141414';
 const BOR   = 'rgba(255,255,255,0.06)';
 const BORM  = 'rgba(255,255,255,0.1)';
-const TEXT  = '#F0EBE4';
-const TSUB  = '#B0A89E';
-const TMUTE = '#7D766E';
-const ACCENT  = '#78716C';
-const ACCENTB = 'rgba(120,113,108,0.15)';
-const ACCENTD = '#57534E';
+const TEXT  = '#FFFFFF';
+const TSUB  = '#A0A0A0';
+const TMUTE = '#606060';
+const ACCENT  = '#FFFFFF';
+const ACCENTB = 'rgba(255,255,255,0.08)';
+const ACCENTD = '#E0E0E0';
 const GRN   = '#22C55E';
 const GRNB  = 'rgba(34,197,94,0.1)';
 
@@ -208,7 +208,7 @@ export default function App() {
         <div style={{ ...wrap, display: 'flex', alignItems: 'center', height: 54 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginRight: 'auto' }}>
             <div style={{ width: 26, height: 26, borderRadius: 7, background: ACCENT, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <i className="ti ti-microphone" style={{ fontSize: 13, color: '#fff' }} />
+              <i className="ti ti-microphone" style={{ fontSize: 13, color: '#000' }} />
             </div>
             <span style={{ fontSize: 14, fontWeight: 700, color: TEXT, letterSpacing: '-0.02em' }}>MediaScriber</span>
           </div>
@@ -275,8 +275,8 @@ export default function App() {
           </div>
           <div style={{ padding: '16px 28px 28px', display: 'flex', gap: 8 }}>
             {['.TXT', '.SRT', '.DOCX', 'API'].map((f, i) => (
-              <div key={i} style={{ flex: 1, background: i === 0 ? ACCENT : SURF2, borderRadius: 8, padding: '10px 0', textAlign: 'center', cursor: 'pointer', border: i === 0 ? 'none' : `1px solid ${BOR}` }}>
-                <div style={{ fontFamily: SANS, fontSize: 12, fontWeight: 700, color: i === 0 ? '#fff' : TMUTE }}>{f}</div>
+              <div key={i} style={{ flex: 1, background: i === 0 ? '#fff' : SURF2, borderRadius: 8, padding: '10px 0', textAlign: 'center', cursor: 'pointer', border: i === 0 ? 'none' : `1px solid ${BOR}` }}>
+                <div style={{ fontFamily: SANS, fontSize: 12, fontWeight: 700, color: i === 0 ? '#000' : TMUTE }}>{f}</div>
               </div>
             ))}
           </div>
@@ -310,13 +310,13 @@ export default function App() {
           </div>
           <div className="steps-g" style={grid('repeat(3,1fr)')}>
             {HOW_STEPS.map((s, i) => (
-              <div key={i} className={i === 1 ? '' : 'card-lift'} style={{ background: i === 1 ? ACCENT : SURF, padding: '36px 30px', position: 'relative', overflow: 'hidden' }}>
-                <div style={{ fontSize: 72, fontWeight: 800, color: i === 1 ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.03)', position: 'absolute', top: 8, right: 16, lineHeight: 1, letterSpacing: '-0.04em', userSelect: 'none' }}>{s.n}</div>
-                <div style={{ width: 40, height: 40, borderRadius: 10, background: i === 1 ? 'rgba(255,255,255,0.15)' : ACCENTB, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 20 }}>
-                  <i className={`ti ${s.icon}`} style={{ fontSize: 18, color: i === 1 ? '#fff' : ACCENT }} />
+                <div key={i} className={i === 1 ? '' : 'card-lift'} style={{ background: i === 1 ? '#fff' : SURF, padding: '36px 30px', position: 'relative', overflow: 'hidden' }}>
+                <div style={{ fontSize: 72, fontWeight: 800, color: i === 1 ? 'rgba(0,0,0,0.04)' : 'rgba(255,255,255,0.03)', position: 'absolute', top: 8, right: 16, lineHeight: 1, letterSpacing: '-0.04em', userSelect: 'none' }}>{s.n}</div>
+                <div style={{ width: 40, height: 40, borderRadius: 10, background: i === 1 ? 'rgba(0,0,0,0.06)' : ACCENTB, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 20 }}>
+                  <i className={`ti ${s.icon}`} style={{ fontSize: 18, color: i === 1 ? '#000' : ACCENT }} />
                 </div>
-                <div style={{ fontSize: 18, fontWeight: 700, color: i === 1 ? '#fff' : TEXT, marginBottom: 10, letterSpacing: '-0.01em' }}>{s.title}</div>
-                <div style={{ fontSize: 14, color: i === 1 ? 'rgba(255,255,255,0.72)' : TSUB, lineHeight: 1.65 }}>{s.body}</div>
+                <div style={{ fontSize: 18, fontWeight: 700, color: i === 1 ? '#000' : TEXT, marginBottom: 10, letterSpacing: '-0.01em' }}>{s.title}</div>
+                <div style={{ fontSize: 14, color: i === 1 ? 'rgba(0,0,0,0.6)' : TSUB, lineHeight: 1.65 }}>{s.body}</div>
               </div>
             ))}
           </div>
@@ -438,7 +438,7 @@ export default function App() {
                     <span style={{ fontSize: 12, color: t.prime ? '#18170F' : TSUB, lineHeight: 1.45 }}>{item}</span>
                   </div>
                 ))}
-                <button className={t.prime ? 'btn-pri' : 'btn-sec'} style={{ fontFamily: SANS, width: '100%', background: t.prime ? ACCENT : 'transparent', color: t.prime ? '#fff' : TSUB, fontSize: 12, fontWeight: 600, border: `1px solid ${t.prime ? ACCENT : BORM}`, padding: '10px 0', borderRadius: 6, minHeight: 44, marginTop: 20 }}>
+                <button className={t.prime ? 'btn-pri' : 'btn-sec'} style={{ fontFamily: SANS, width: '100%', background: t.prime ? '#000' : 'transparent', color: t.prime ? '#fff' : TSUB, fontSize: 12, fontWeight: 600, border: `1px solid ${t.prime ? '#000' : BORM}`, padding: '10px 0', borderRadius: 6, minHeight: 44, marginTop: 20 }}>
                   {t.cta}
                 </button>
               </div>
@@ -475,7 +475,7 @@ export default function App() {
           <div>
             <h2 style={{ fontSize: 36, fontWeight: 700, lineHeight: 1.15, color: '#18170F', marginBottom: 12, letterSpacing: '-0.03em' }}>
               Your recordings hold more<br />
-              <span style={{ color: ACCENTD }}>value than you're extracting</span><br />
+              <span style={{ color: '#606060' }}>value than you're extracting</span><br />
               from them.
             </h2>
             <p style={{ fontSize: 14, color: '#6A6860', lineHeight: 1.65, marginBottom: 24 }}>
@@ -502,7 +502,7 @@ export default function App() {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
               <div style={{ width: 24, height: 24, borderRadius: 6, background: ACCENT, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <i className="ti ti-microphone" style={{ fontSize: 12, color: '#fff' }} />
+                <i className="ti ti-microphone" style={{ fontSize: 12, color: '#000' }} />
               </div>
               <span style={{ fontSize: 14, fontWeight: 700, color: TEXT, letterSpacing: '-0.02em' }}>MediaScriber</span>
             </div>
