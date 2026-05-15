@@ -32,7 +32,7 @@ const SPECS = [
 const HOW_STEPS = [
   { n: '01', icon: 'ti-upload',       title: 'Upload your file',         body: 'Any audio or video file, up to 1GB.' },
   { n: '02', icon: 'ti-cpu',          title: 'We process it',            body: '99.5% accuracy. Speaker-labelled. Timestamped. In minutes.' },
-  { n: '03', icon: 'ti-file-export',  title: 'Export and use it',        body: 'Download TXT, SRT, DOCX, or integrate via API.' },
+  { n: '03', icon: 'ti-file-export',  title: 'Export and use it',        body: 'Download TXT, SRT, or DOCX. Plug into your workflow via API.' },
 ];
 
 const FOR_WHO = [
@@ -40,14 +40,14 @@ const FOR_WHO = [
     icon: 'ti-microphone-2',
     who: 'Podcast producers',
     headline: 'Turn every episode into content that works for weeks.',
-    body: "You record an hour. MediaScriber turns the other fifty minutes into clips, show notes, and transcripts.",
+    body: "You record an hour. You use ten minutes. MediaScriber unlocks the rest — show notes, clips, transcripts that keep your episode working long after it airs.",
     tags: ['Show notes', 'Clip selection', 'SEO content', 'Guest quotes'],
   },
   {
     icon: 'ti-news',
     who: 'Journalists and researchers',
     headline: "Every source. Every word. Accounted for.",
-    body: "Timestamped, speaker-labelled interview records you can search and export. Every quote exactly where you left it.",
+    body: "Every interview becomes a timestamped, speaker-labelled record you can search and export. No more scrubbing through audio for the right quote.",
     tags: ['Interview records', 'Speaker attribution', 'Source verification', 'Archive search'],
   },
   {
@@ -118,7 +118,7 @@ const FAQS = [
   { q: "How is MediaScriber different from Otter?",    a: "Otter is built for live meetings. MediaScriber is optimised for recorded content — higher accuracy on pre-recorded files." },
   { q: "Can my team collaborate on transcripts?",      a: "Yes. Starter and above include team access. Enterprise includes unlimited members and guest access." },
   { q: "What languages are supported?",                a: "50+ languages. Auto-detected from your audio, or set manually before processing." },
-  { q: "Can I cancel anytime?",                        a: "Yes. No contracts. Cancel from your account settings. Access continues until end of billing period." },
+  { q: "Can I cancel anytime?",                        a: "Yes. No contracts, no questions asked. Cancel from your account settings. Access continues until end of billing period." },
 ];
 
 function Tag({ children }) {
@@ -304,7 +304,7 @@ export default function App() {
               <H2>Upload. Process. Use.<br />That's it.</H2>
             </div>
             <p style={{ fontSize: 14, color: TSUB, maxWidth: 260, textAlign: 'right', lineHeight: 1.65 }}>
-              Three steps. No software. No account required. Just upload and go.
+              Three steps. No account. No learning curve. Just upload and go.
             </p>
           </div>
           <div className="steps-g" style={grid('repeat(3,1fr)')}>
@@ -327,7 +327,7 @@ export default function App() {
         <div style={wrap}>
           <div style={{ marginBottom: 36 }}>
             <Tag>Who it's for</Tag>
-            <H2 style={{ marginBottom: 8 }}>Built for anyone who records<br />something worth keeping.</H2>
+            <H2 style={{ marginBottom: 8 }}>Built for podcasters, journalists,<br />video creators, and teams.</H2>
             <p style={{ fontSize: 15, color: TSUB }}>If you record it, MediaScriber makes it searchable, shareable, and useful.</p>
           </div>
 
