@@ -228,20 +228,26 @@ export default function App() {
       {/* HERO */}
       <section style={{ position: 'relative', overflow: 'hidden', padding: '140px 32px 80px', textAlign: 'center' }}>
         <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse 600px 400px at 50% 40%, ${ACCENT}15, transparent 70%)`, pointerEvents: 'none' }} />
-        <div style={{ position: 'relative', maxWidth: 640, margin: '0 auto' }}>
+        <div style={{ position: 'relative', maxWidth: 720, margin: '0 auto' }}>
           <div className="fade-up" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: ACCENT, background: ACCENTB, padding: '5px 14px', borderRadius: 100, marginBottom: 28 }}>
             <i className="ti ti-sparkles" style={{ fontSize: 11 }} />
             99.5% accurate transcription
           </div>
-          <h1 className="fade-up" style={{ fontSize: 40, fontWeight: 700, lineHeight: 1.1, color: TEXT, marginBottom: 32, letterSpacing: '-0.03em' }}>
-            Audio to transcript.<br />Speaker-labelled. In minutes.
+          <h1 className="fade-up" style={{ fontSize: 52, fontWeight: 700, lineHeight: 1.05, color: TEXT, marginBottom: 20, letterSpacing: '-0.03em' }}>
+            Stop digging through hours<br />of audio. Find any quote,<br />any speaker, in seconds.
           </h1>
+          <p className="fade-up" style={{ fontSize: 17, color: TSUB, lineHeight: 1.7, marginBottom: 36, maxWidth: 600, marginLeft: 'auto', marginRight: 'auto' }}>
+            Upload audio or video. Get an accurate, speaker-labelled transcript in minutes — not hours.
+          </p>
           <div className="fade-up hero-b" style={{ display: 'flex', gap: 10, justifyContent: 'center', marginBottom: 16 }}>
             <button className="btn-pri" style={{ fontFamily: SANS, background: TEXT, color: BG, fontSize: 15, fontWeight: 600, border: 'none', padding: '14px 28px', borderRadius: 8, minHeight: 48 }}>
               Transcribe your first file free
             </button>
+            <button className="btn-sec" style={{ fontFamily: SANS, background: 'transparent', color: TSUB, fontSize: 15, border: `1px solid ${BORM}`, padding: '14px 24px', borderRadius: 8, minHeight: 48 }}>
+              View pricing
+            </button>
           </div>
-          <p style={{ fontSize: 12, color: TMUTE }}>First 30 min free · No credit card</p>
+          <p style={{ fontSize: 12, color: TMUTE }}>First 30 min free · No credit card · No software to install</p>
         </div>
       </section>
 
