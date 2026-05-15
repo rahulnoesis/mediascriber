@@ -233,8 +233,8 @@ export default function App() {
             <i className="ti ti-sparkles" style={{ fontSize: 11 }} />
             99.5% accurate transcription
           </div>
-          <h1 className="fade-up" style={{ fontSize: 52, fontWeight: 700, lineHeight: 1.05, color: TEXT, marginBottom: 20, letterSpacing: '-0.03em' }}>
-            Stop digging through hours<br />of audio. Find any quote,<br />any speaker, in seconds.
+          <h1 className="fade-up" style={{ fontSize: 48, fontWeight: 700, lineHeight: 1.1, color: TEXT, marginBottom: 24, letterSpacing: '-0.03em' }}>
+            Stop digging through hours of audio.
           </h1>
           <p className="fade-up" style={{ fontSize: 17, color: TSUB, lineHeight: 1.7, marginBottom: 36, maxWidth: 600, marginLeft: 'auto', marginRight: 'auto' }}>
             Upload audio or video. Get an accurate, speaker-labelled transcript in minutes — not hours.
