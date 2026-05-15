@@ -148,11 +148,56 @@ export default function App() {
   return (
     <div style={{ background: BG, color: TEXT, fontFamily: SANS, minHeight: '100vh', lineHeight: 1.6 }}>
       <style>{`
+        html { scroll-behavior: smooth; }
         * { box-sizing: border-box; }
-        ::-webkit-scrollbar { width: 3px; }
-        ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 2px; }
+        ::selection { background: ${TEAL}22; }
+
+        .fade-up { animation: fadeUp 0.5s ease both; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+        .btn-pri { transition: all 0.2s ease; cursor: pointer; }
+        .btn-pri:hover { transform: translateY(-1px); box-shadow: 0 4px 14px ${TEAL}44; }
+        .btn-pri:active { transform: translateY(0); }
+
+        .btn-sec { transition: all 0.2s ease; cursor: pointer; }
+        .btn-sec:hover { background: ${SURF} !important; }
+
+        .btn-dark { transition: all 0.2s ease; cursor: pointer; }
+        .btn-dark:hover { opacity: 0.85; transform: translateY(-1px); }
+
+        .card-lift { transition: all 0.25s ease; }
+        .card-lift:hover { transform: translateY(-3px); }
+
+        .who-btn { transition: all 0.15s ease !important; }
         .who-btn:hover { border-color: ${TEAL} !important; color: ${TEAL} !important; }
+        .nav-link { transition: color 0.15s ease; }
         .nav-link:hover { color: ${TEXT} !important; }
+
+        @media (max-width: 1023px) {
+          .hero-g { grid-template-columns: 1fr !important; gap: 40px !important; }
+        }
+        @media (max-width: 768px) {
+          .hero-g { gap: 32px !important; text-align: center !important; }
+          .hero-g p { max-width: 100% !important; }
+          .hero-b { flex-direction: column !important; }
+          .hero-b button { width: 100% !important; }
+          .specs-g { grid-template-columns: repeat(2,1fr) !important; }
+          .steps-g { grid-template-columns: 1fr !important; }
+          .who-p { grid-template-columns: 1fr !important; padding: 24px !important; }
+          .ft-t { grid-template-columns: 1fr !important; text-align: center !important; padding: 28px !important; }
+          .t-g { grid-template-columns: repeat(2,1fr) !important; }
+          .p-g { grid-template-columns: repeat(2,1fr) !important; }
+          .nav-d { display: none !important; }
+          section { padding: 48px 20px !important; }
+          h1 { font-size: 36px !important; }
+          h2 { font-size: 26px !important; }
+        }
+        @media (max-width: 480px) {
+          .specs-g { grid-template-columns: 1fr !important; }
+          .t-g { grid-template-columns: 1fr !important; }
+          .p-g { grid-template-columns: 1fr !important; }
+          h1 { font-size: 30px !important; }
+        }
       `}</style>
 
       {/* NAV */}
@@ -164,13 +209,13 @@ export default function App() {
             </div>
             <span style={{ fontSize: 14, fontWeight: 700, color: TEXT, letterSpacing: '-0.02em' }}>MediaScriber</span>
           </div>
-          <div style={{ display: 'flex', gap: 24, alignItems: 'center' }}>
+          <div className="nav-d" style={{ display: 'flex', gap: 24, alignItems: 'center' }}>
             {['Features', 'How it Works', 'Pricing', 'FAQ'].map(l => (
               <span key={l} className="nav-link" style={{ fontSize: 13, color: TSUB, cursor: 'pointer' }}>{l}</span>
             ))}
             <div style={{ width: 1, height: 16, background: BOR }} />
             <span style={{ fontSize: 13, color: TSUB, cursor: 'pointer' }}>Sign in</span>
-            <button style={{ fontFamily: SANS, background: TEXT, color: BG, fontSize: 13, fontWeight: 600, border: 'none', padding: '8px 16px', borderRadius: 7, cursor: 'pointer' }}>
+            <button className="btn-dark" style={{ fontFamily: SANS, background: TEXT, color: BG, fontSize: 13, fontWeight: 600, border: 'none', padding: '10px 20px', borderRadius: 8, minHeight: 44 }}>
               Try it free →
             </button>
           </div>
@@ -178,11 +223,11 @@ export default function App() {
       </nav>
 
       {/* HERO */}
-      <section style={{ padding: '72px 32px 80px', ...wrap }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
+      <section style={{ padding: '80px 32px 88px', ...wrap, background: `linear-gradient(180deg, ${BG} 0%, ${SURF} 100%)`, borderRadius: '0 0 24px 24px' }}>
+        <div className="hero-g" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
 
           {/* LEFT */}
-          <div>
+          <div className="fade-up">
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: TEAL, background: TEALB, padding: '4px 12px', borderRadius: 100, marginBottom: 24 }}>
               <i className="ti ti-sparkles" style={{ fontSize: 11 }} />
               99.5% accurate transcription
@@ -196,11 +241,11 @@ export default function App() {
             <p style={{ fontSize: 15, color: TMUTE, lineHeight: 1.65, marginBottom: 32, maxWidth: 420 }}>
               MediaScriber identifies who said what, timestamps every line, and exports in the format you need. Your recordings keep working long after they end.
             </p>
-            <div style={{ display: 'flex', gap: 10, marginBottom: 20 }}>
-              <button style={{ fontFamily: SANS, background: TEAL, color: '#fff', fontSize: 14, fontWeight: 600, border: 'none', padding: '12px 24px', borderRadius: 8, cursor: 'pointer' }}>
+            <div className="hero-b" style={{ display: 'flex', gap: 10, marginBottom: 20 }}>
+              <button className="btn-pri" style={{ fontFamily: SANS, background: TEAL, color: '#fff', fontSize: 14, fontWeight: 600, border: 'none', padding: '12px 24px', borderRadius: 8, minHeight: 48 }}>
                 Transcribe your first file free
               </button>
-              <button style={{ fontFamily: SANS, background: 'transparent', color: TSUB, fontSize: 14, border: `1px solid ${BORM}`, padding: '12px 20px', borderRadius: 8, cursor: 'pointer' }}>
+              <button className="btn-sec" style={{ fontFamily: SANS, background: 'transparent', color: TSUB, fontSize: 14, border: `1px solid ${BORM}`, padding: '12px 20px', borderRadius: 8, minHeight: 48 }}>
                 View pricing
               </button>
             </div>
@@ -208,7 +253,7 @@ export default function App() {
           </div>
 
           {/* RIGHT — transcript mock */}
-          <div style={{ background: '#111', borderRadius: 14, overflow: 'hidden', boxShadow: '0 24px 64px rgba(0,0,0,0.2)' }}>
+          <div className="fade-up" style={{ background: '#111', borderRadius: 14, overflow: 'hidden', boxShadow: '0 24px 80px rgba(0,0,0,0.18)', animationDelay: '0.15s' }}>
             <div style={{ padding: '11px 16px', background: '#1A1A1A', display: 'flex', alignItems: 'center', gap: 6, borderBottom: '1px solid #2A2A2A' }}>
               {['#FF5F57','#FEBC2E','#28C840'].map((c, i) => (
                 <div key={i} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />
@@ -241,9 +286,9 @@ export default function App() {
 
       {/* SPECS STRIP */}
       <div style={{ borderTop: `1px solid ${BOR}`, borderBottom: `1px solid ${BOR}`, background: SURF }}>
-        <div style={{ ...wrap, display: 'grid', gridTemplateColumns: 'repeat(4,1fr)' }}>
+        <div className="specs-g" style={{ ...wrap, display: 'grid', gridTemplateColumns: 'repeat(4,1fr)' }}>
           {SPECS.map((s, i) => (
-            <div key={i} style={{ padding: '28px 32px', borderRight: i < 3 ? `1px solid ${BOR}` : 'none' }}>
+            <div key={i} className="card-lift" style={{ padding: '28px 32px', borderRight: i < 3 ? `1px solid ${BOR}` : 'none' }}>
               <div style={{ fontSize: 30, fontWeight: 800, color: TEAL, letterSpacing: '-0.03em', marginBottom: 4 }}>{s.val}</div>
               <div style={{ fontSize: 13, fontWeight: 600, color: TEXT, marginBottom: 3 }}>{s.label}</div>
               <div style={{ fontSize: 12, color: TMUTE, lineHeight: 1.5 }}>{s.sub}</div>
@@ -264,9 +309,9 @@ export default function App() {
               Three steps. No software. No account required. Just upload and go.
             </p>
           </div>
-          <div style={grid('repeat(3,1fr)')}>
+          <div className="steps-g" style={grid('repeat(3,1fr)')}>
             {HOW_STEPS.map((s, i) => (
-              <div key={i} style={{ background: i === 1 ? TEAL : SURF, padding: '36px 30px', position: 'relative', overflow: 'hidden' }}>
+              <div key={i} className={i === 1 ? '' : 'card-lift'} style={{ background: i === 1 ? TEAL : SURF, padding: '36px 30px', position: 'relative', overflow: 'hidden' }}>
                 <div style={{ fontSize: 72, fontWeight: 800, color: i === 1 ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)', position: 'absolute', top: 8, right: 16, lineHeight: 1, letterSpacing: '-0.04em', userSelect: 'none' }}>{s.n}</div>
                 <div style={{ width: 40, height: 40, borderRadius: 10, background: i === 1 ? 'rgba(255,255,255,0.15)' : TEALB, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 20 }}>
                   <i className={`ti ${s.icon}`} style={{ fontSize: 18, color: i === 1 ? '#fff' : TEAL }} />
@@ -292,7 +337,7 @@ export default function App() {
           <div style={{ display: 'flex', gap: 8, marginBottom: 24, flexWrap: 'wrap' }}>
             {FOR_WHO.map((w, i) => (
               <button key={i} className="who-btn" onClick={() => setActiveWho(i)}
-                style={{ fontFamily: SANS, display: 'flex', alignItems: 'center', gap: 7, fontSize: 13, fontWeight: 500, padding: '8px 16px', borderRadius: 8, border: `1px solid ${activeWho === i ? TEAL : BORM}`, background: activeWho === i ? TEALB : 'transparent', color: activeWho === i ? TEAL : TSUB, cursor: 'pointer', transition: 'all 0.15s' }}>
+                style={{ fontFamily: SANS, display: 'flex', alignItems: 'center', gap: 7, fontSize: 13, fontWeight: 500, padding: '10px 18px', borderRadius: 8, minHeight: 44, border: `1px solid ${activeWho === i ? TEAL : BORM}`, background: activeWho === i ? TEALB : 'transparent', color: activeWho === i ? TEAL : TSUB, cursor: 'pointer', transition: 'all 0.15s' }}>
                 <i className={`ti ${w.icon}`} style={{ fontSize: 14 }} />
                 {w.who}
               </button>
@@ -300,7 +345,7 @@ export default function App() {
           </div>
 
           {/* Panel */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, background: SURF, borderRadius: 12, padding: '40px 44px', alignItems: 'start' }}>
+          <div className="who-p" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, background: SURF, borderRadius: 12, padding: '40px 44px', alignItems: 'start' }}>
             <div>
               <div style={{ fontSize: 11, fontWeight: 600, color: TEAL, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 12 }}>{FOR_WHO[activeWho].who}</div>
               <h3 style={{ fontSize: 24, fontWeight: 700, color: TEXT, lineHeight: 1.25, marginBottom: 14, letterSpacing: '-0.02em' }}>
@@ -309,7 +354,7 @@ export default function App() {
               <p style={{ fontSize: 14, color: TSUB, lineHeight: 1.75, marginBottom: 24 }}>
                 {FOR_WHO[activeWho].body}
               </p>
-              <button style={{ fontFamily: SANS, background: TEAL, color: '#fff', fontSize: 13, fontWeight: 600, border: 'none', padding: '10px 20px', borderRadius: 7, cursor: 'pointer' }}>
+              <button className="btn-pri" style={{ fontFamily: SANS, background: TEAL, color: '#fff', fontSize: 13, fontWeight: 600, border: 'none', padding: '10px 20px', borderRadius: 7, minHeight: 44 }}>
                 Try it free →
               </button>
             </div>
@@ -337,7 +382,7 @@ export default function App() {
           </div>
 
           {/* Featured */}
-          <div style={{ background: SURF, borderRadius: 12, padding: '44px 52px', marginBottom: 2, display: 'grid', gridTemplateColumns: '1fr auto', gap: 48, alignItems: 'center' }}>
+          <div className="ft-t" style={{ background: SURF, borderRadius: 12, padding: '44px 52px', marginBottom: 2, display: 'grid', gridTemplateColumns: '1fr auto', gap: 48, alignItems: 'center' }}>
             <div>
               <div style={{ fontSize: 20, fontWeight: 600, color: TEXT, lineHeight: 1.55, marginBottom: 20, letterSpacing: '-0.01em' }}>
                 "{TESTIMONIALS[0].quote}"
@@ -351,9 +396,9 @@ export default function App() {
           </div>
 
           {/* 4 smaller */}
-          <div style={grid('repeat(4,1fr)')}>
+          <div className="t-g" style={grid('repeat(4,1fr)')}>
             {TESTIMONIALS.slice(1).map((t, i) => (
-              <div key={i} style={{ background: BG, padding: '24px 22px' }}>
+              <div key={i} className="card-lift" style={{ background: BG, padding: '24px 22px' }}>
                 <div style={{ display: 'flex', gap: 2, marginBottom: 12 }}>
                   {[1,2,3,4,5].map(n => <i key={n} className="ti ti-star-filled" style={{ fontSize: 11, color: TEAL }} />)}
                 </div>
@@ -376,9 +421,9 @@ export default function App() {
             </div>
             <p style={{ fontSize: 14, color: TSUB }}>No hidden fees. No surprises. Cancel anytime.</p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: 2, background: BOR }}>
+          <div className="p-g" style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: 2, background: BOR }}>
             {TIERS.map((t, i) => (
-              <div key={i} style={{ background: t.prime ? TEXT : BG, padding: '28px 20px', position: 'relative' }}>
+              <div key={i} className={t.prime ? '' : 'card-lift'} style={{ background: t.prime ? TEXT : BG, padding: '28px 20px', position: 'relative' }}>
                 {t.prime && (
                   <div style={{ position: 'absolute', top: -11, left: '50%', transform: 'translateX(-50%)', background: TEAL, color: '#fff', fontSize: 10, fontWeight: 700, padding: '3px 10px', borderRadius: 100, whiteSpace: 'nowrap', fontFamily: SANS }}>
                     Most popular
@@ -394,7 +439,7 @@ export default function App() {
                     <span style={{ fontSize: 12, color: t.prime ? 'rgba(255,255,255,0.72)' : TSUB, lineHeight: 1.45 }}>{item}</span>
                   </div>
                 ))}
-                <button style={{ fontFamily: SANS, width: '100%', background: t.prime ? TEAL : 'transparent', color: t.prime ? '#fff' : TSUB, fontSize: 12, fontWeight: 600, border: `1px solid ${t.prime ? TEAL : BORM}`, padding: '9px 0', borderRadius: 6, cursor: 'pointer', marginTop: 20 }}>
+                <button className={t.prime ? 'btn-pri' : 'btn-sec'} style={{ fontFamily: SANS, width: '100%', background: t.prime ? TEAL : 'transparent', color: t.prime ? '#fff' : TSUB, fontSize: 12, fontWeight: 600, border: `1px solid ${t.prime ? TEAL : BORM}`, padding: '10px 0', borderRadius: 6, minHeight: 44, marginTop: 20 }}>
                   {t.cta}
                 </button>
               </div>
@@ -414,7 +459,7 @@ export default function App() {
             <span style={{ fontSize: 13, color: TMUTE }}>{FAQS.length} answers</span>
           </div>
           {FAQS.map((f, i) => (
-            <div key={i} style={{ borderTop: `1px solid ${BOR}`, padding: '15px 0', cursor: 'pointer' }} onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+            <div key={i} className="card-lift" style={{ borderTop: `1px solid ${BOR}`, padding: '15px 0', cursor: 'pointer', borderRadius: 8 }} onClick={() => setOpenFaq(openFaq === i ? null : i)}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16 }}>
                 <span style={{ fontSize: 14, fontWeight: 500, color: TEXT }}>{f.q}</span>
                 <i className={`ti ${openFaq === i ? 'ti-minus' : 'ti-plus'}`} style={{ fontSize: 14, color: TEAL, flexShrink: 0 }} />
@@ -427,7 +472,7 @@ export default function App() {
       </section>
 
       {/* BOTTOM CTA */}
-      <section style={{ borderTop: `1px solid ${BOR}`, padding: '88px 32px', background: TEXT, textAlign: 'center' }}>
+      <section style={{ borderTop: `1px solid ${BOR}`, padding: '88px 32px', background: `linear-gradient(160deg, ${TEXT} 0%, #2A2A24 100%)`, textAlign: 'center' }}>
         <div style={{ maxWidth: 520, margin: '0 auto' }}>
           <h2 style={{ fontSize: 40, fontWeight: 800, lineHeight: 1.1, color: '#fff', marginBottom: 14, letterSpacing: '-0.03em' }}>
             Your recordings hold more<br />
@@ -437,7 +482,7 @@ export default function App() {
           <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.4)', marginBottom: 32, lineHeight: 1.65 }}>
             Start with 30 minutes free. No credit card. No software.
           </p>
-          <button style={{ fontFamily: SANS, background: TEAL, color: '#fff', fontSize: 15, fontWeight: 700, border: 'none', padding: '14px 32px', borderRadius: 9, cursor: 'pointer', marginBottom: 14 }}>
+          <button className="btn-pri" style={{ fontFamily: SANS, background: TEAL, color: '#fff', fontSize: 15, fontWeight: 700, border: 'none', padding: '14px 32px', borderRadius: 9, minHeight: 48, marginBottom: 14 }}>
             Upload your first file →
           </button>
           <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.2)' }}>
