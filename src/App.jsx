@@ -9,9 +9,9 @@ const BORM  = 'rgba(255,255,255,0.1)';
 const TEXT  = '#F0EBE4';
 const TSUB  = '#B0A89E';
 const TMUTE = '#7D766E';
-const ACCENT  = '#F59E0B';
-const ACCENTB = 'rgba(245,158,11,0.1)';
-const ACCENTD = '#D97706';
+const ACCENT  = '#78716C';
+const ACCENTB = 'rgba(120,113,108,0.15)';
+const ACCENTD = '#57534E';
 const GRN   = '#22C55E';
 const GRNB  = 'rgba(34,197,94,0.1)';
 
@@ -240,7 +240,7 @@ export default function App() {
             Upload audio or video. Get an accurate, speaker-labelled transcript in minutes — not hours.
           </p>
           <div className="fade-up hero-b" style={{ display: 'flex', gap: 10, justifyContent: 'center', marginBottom: 16 }}>
-            <button className="btn-pri" style={{ fontFamily: SANS, background: ACCENT, color: '#fff', fontSize: 15, fontWeight: 600, border: 'none', padding: '14px 28px', borderRadius: 8, minHeight: 48 }}>
+            <button className="btn-pri" style={{ fontFamily: SANS, background: '#F4EFE8', color: '#18170F', fontSize: 15, fontWeight: 600, border: 'none', padding: '14px 28px', borderRadius: 8, minHeight: 48 }}>
               Transcribe your first file free
             </button>
             <button className="btn-sec" style={{ fontFamily: SANS, background: 'transparent', color: TSUB, fontSize: 15, border: `1px solid ${BORM}`, padding: '14px 24px', borderRadius: 8, minHeight: 48 }}>
@@ -288,7 +288,7 @@ export default function App() {
         <div className="specs-g" style={{ ...wrap, display: 'grid', gridTemplateColumns: 'repeat(4,1fr)' }}>
           {SPECS.map((s, i) => (
             <div key={i} className="card-lift" style={{ padding: '28px 32px', borderRight: i < 3 ? `1px solid ${BOR}` : 'none' }}>
-              <div style={{ fontSize: 30, fontWeight: 800, color: ACCENT, letterSpacing: '-0.03em', marginBottom: 4 }}>{s.val}</div>
+              <div style={{ fontSize: 30, fontWeight: 800, color: TEXT, letterSpacing: '-0.03em', marginBottom: 4 }}>{s.val}</div>
               <div style={{ fontSize: 13, fontWeight: 600, color: TEXT, marginBottom: 3 }}>{s.label}</div>
               <div style={{ fontSize: 12, color: TMUTE, lineHeight: 1.5 }}>{s.sub}</div>
             </div>
@@ -353,7 +353,7 @@ export default function App() {
               <p style={{ fontSize: 14, color: TSUB, lineHeight: 1.75, marginBottom: 24 }}>
                 {FOR_WHO[activeWho].body}
               </p>
-              <button className="btn-pri" style={{ fontFamily: SANS, background: ACCENT, color: '#fff', fontSize: 13, fontWeight: 600, border: 'none', padding: '10px 20px', borderRadius: 7, minHeight: 44 }}>
+              <button className="btn-pri" style={{ fontFamily: SANS, background: '#F4EFE8', color: '#18170F', fontSize: 13, fontWeight: 600, border: 'none', padding: '10px 20px', borderRadius: 7, minHeight: 44 }}>
                 Try it free →
               </button>
             </div>
@@ -362,7 +362,7 @@ export default function App() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 {FOR_WHO[activeWho].tags.map((tag, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '11px 16px', background: BG, borderRadius: 8, border: `1px solid ${BOR}` }}>
-                    <i className="ti ti-check" style={{ fontSize: 13, color: ACCENT, flexShrink: 0 }} />
+                    <i className="ti ti-check" style={{ fontSize: 13, color: GRN, flexShrink: 0 }} />
                     <span style={{ fontSize: 14, color: TEXT, fontWeight: 500 }}>{tag}</span>
                   </div>
                 ))}
@@ -390,7 +390,7 @@ export default function App() {
               <div style={{ fontSize: 12, color: TMUTE }}>{TESTIMONIALS[0].role}</div>
             </div>
             <div style={{ display: 'flex', gap: 3, alignSelf: 'flex-start' }}>
-              {[1,2,3,4,5].map(n => <i key={n} className="ti ti-star-filled" style={{ fontSize: 16, color: ACCENT }} />)}
+              {[1,2,3,4,5].map(n => <i key={n} className="ti ti-star-filled" style={{ fontSize: 16, color: TSUB }} />)}
             </div>
           </div>
 
@@ -399,7 +399,7 @@ export default function App() {
             {TESTIMONIALS.slice(1).map((t, i) => (
               <div key={i} className="card-lift" style={{ background: BG, padding: '24px 22px' }}>
                 <div style={{ display: 'flex', gap: 2, marginBottom: 12 }}>
-                  {[1,2,3,4,5].map(n => <i key={n} className="ti ti-star-filled" style={{ fontSize: 11, color: ACCENT }} />)}
+                  {[1,2,3,4,5].map(n => <i key={n} className="ti ti-star-filled" style={{ fontSize: 11, color: TSUB }} />)}
                 </div>
                 <div style={{ fontSize: 13, color: TSUB, lineHeight: 1.72, marginBottom: 16 }}>"{t.quote}"</div>
                 <div style={{ fontSize: 13, fontWeight: 600, color: TEXT }}>{t.name}</div>
@@ -424,7 +424,7 @@ export default function App() {
             {TIERS.map((t, i) => (
               <div key={i} className={t.prime ? '' : 'card-lift'} style={{ background: t.prime ? TEXT : BG, padding: '28px 20px', position: 'relative' }}>
                 {t.prime && (
-                  <div style={{ position: 'absolute', top: -11, left: '50%', transform: 'translateX(-50%)', background: ACCENT, color: '#fff', fontSize: 10, fontWeight: 700, padding: '3px 10px', borderRadius: 100, whiteSpace: 'nowrap', fontFamily: SANS }}>
+                  <div style={{ position: 'absolute', top: -11, left: '50%', transform: 'translateX(-50%)', background: '#F4EFE8', color: '#18170F', fontSize: 10, fontWeight: 700, padding: '3px 10px', borderRadius: 100, whiteSpace: 'nowrap', fontFamily: SANS }}>
                     Most popular
                   </div>
                 )}
@@ -461,7 +461,7 @@ export default function App() {
             <div key={i} className="card-lift" style={{ background: SURF2, borderRadius: 12, padding: '18px 22px', marginBottom: 8, cursor: 'pointer', border: `1px solid ${BOR}` }} onClick={() => setOpenFaq(openFaq === i ? null : i)}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16 }}>
                 <span style={{ fontSize: 14, fontWeight: 500, color: TEXT }}>{f.q}</span>
-                <i className={`ti ${openFaq === i ? 'ti-minus' : 'ti-plus'}`} style={{ fontSize: 14, color: ACCENT, flexShrink: 0 }} />
+                <i className={`ti ${openFaq === i ? 'ti-minus' : 'ti-plus'}`} style={{ fontSize: 14, color: TSUB, flexShrink: 0 }} />
               </div>
               {openFaq === i && <div style={{ fontSize: 14, color: TSUB, lineHeight: 1.72, marginTop: 12, paddingRight: 24 }}>{f.a}</div>}
             </div>
