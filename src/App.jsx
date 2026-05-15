@@ -9,16 +9,16 @@ const BORM  = 'rgba(255,255,255,0.1)';
 const TEXT  = '#F0EBE4';
 const TSUB  = '#B0A89E';
 const TMUTE = '#7D766E';
-const TEAL  = '#14B8A6';
-const TEALB = 'rgba(20,184,166,0.1)';
-const TEALD = '#0F9E8E';
+const ACCENT  = '#F59E0B';
+const ACCENTB = 'rgba(245,158,11,0.1)';
+const ACCENTD = '#D97706';
 const GRN   = '#22C55E';
 const GRNB  = 'rgba(34,197,94,0.1)';
 
 const MOCK_LINES = [
-  { speaker: 'Priya',  color: TEAL,     time: '00:00', text: 'Most podcasters never use 80% of what they record.' },
+  { speaker: 'Priya',  color: ACCENT,     time: '00:00', text: 'Most podcasters never use 80% of what they record.' },
   { speaker: 'Arjun',  color: '#7C3AED', time: '00:08', text: 'Because going back to find a specific moment costs more time than it saves.' },
-  { speaker: 'Priya',  color: TEAL,     time: '00:15', text: "Exactly. If it's not in your notes from the day, it's gone." },
+  { speaker: 'Priya',  color: ACCENT,     time: '00:15', text: "Exactly. If it's not in your notes from the day, it's gone." },
   { speaker: 'Arjun',  color: '#7C3AED', time: '00:24', text: 'The timestamp search alone saves me four hours a week.' },
 ];
 
@@ -123,7 +123,7 @@ const FAQS = [
 
 function Tag({ children }) {
   return (
-    <div style={{ fontFamily: SANS, fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: TEAL, marginBottom: 18 }}>
+    <div style={{ fontFamily: SANS, fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: ACCENT, marginBottom: 18 }}>
       {children}
     </div>
   );
@@ -150,14 +150,14 @@ export default function App() {
       <style>{`
         html { scroll-behavior: smooth; }
         * { box-sizing: border-box; }
-        ::selection { background: ${TEAL}22; }
+        ::selection { background: ${ACCENT}22; }
         section[id] { scroll-margin-top: 60px; }
 
         .fade-up { animation: fadeUp 0.5s ease both; }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 
         .btn-pri { transition: all 0.2s ease; cursor: pointer; }
-        .btn-pri:hover { transform: translateY(-1px); box-shadow: 0 4px 14px ${TEAL}44; }
+        .btn-pri:hover { transform: translateY(-1px); box-shadow: 0 4px 14px ${ACCENT}44; }
         .btn-pri:active { transform: translateY(0); }
 
         .btn-sec { transition: all 0.2s ease; cursor: pointer; }
@@ -170,7 +170,7 @@ export default function App() {
         .card-lift:hover { transform: translateY(-3px); }
 
         .who-btn { transition: all 0.15s ease !important; }
-        .who-btn:hover { border-color: ${TEAL} !important; color: ${TEAL} !important; }
+        .who-btn:hover { border-color: ${ACCENT} !important; color: ${ACCENT} !important; }
         .nav-link { transition: color 0.15s ease; cursor: pointer; }
         .nav-link:hover { color: ${TEXT} !important; }
 
@@ -207,7 +207,7 @@ export default function App() {
       <nav style={{ position: 'sticky', top: 0, zIndex: 50, background: `${BG}EE`, backdropFilter: 'blur(12px)', borderBottom: `1px solid ${BOR}`, padding: '0 32px' }}>
         <div style={{ ...wrap, display: 'flex', alignItems: 'center', height: 54 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginRight: 'auto' }}>
-            <div style={{ width: 26, height: 26, borderRadius: 7, background: TEAL, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ width: 26, height: 26, borderRadius: 7, background: ACCENT, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <i className="ti ti-microphone" style={{ fontSize: 13, color: '#fff' }} />
             </div>
             <span style={{ fontSize: 14, fontWeight: 700, color: TEXT, letterSpacing: '-0.02em' }}>MediaScriber</span>
@@ -227,9 +227,9 @@ export default function App() {
 
       {/* HERO */}
       <section style={{ position: 'relative', overflow: 'hidden', padding: '120px 32px 80px', textAlign: 'center' }}>
-        <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse 600px 400px at 50% 40%, ${TEAL}15, transparent 70%)`, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse 600px 400px at 50% 40%, ${ACCENT}15, transparent 70%)`, pointerEvents: 'none' }} />
         <div style={{ position: 'relative', maxWidth: 720, margin: '0 auto' }}>
-          <div className="fade-up" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: TEAL, background: TEALB, padding: '5px 14px', borderRadius: 100, marginBottom: 28 }}>
+          <div className="fade-up" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: ACCENT, background: ACCENTB, padding: '5px 14px', borderRadius: 100, marginBottom: 28 }}>
             <i className="ti ti-sparkles" style={{ fontSize: 11 }} />
             99.5% accurate transcription
           </div>
@@ -240,7 +240,7 @@ export default function App() {
             Upload audio or video. Get an accurate, speaker-labelled transcript in minutes — not hours.
           </p>
           <div className="fade-up hero-b" style={{ display: 'flex', gap: 10, justifyContent: 'center', marginBottom: 16 }}>
-            <button className="btn-pri" style={{ fontFamily: SANS, background: TEAL, color: '#fff', fontSize: 15, fontWeight: 600, border: 'none', padding: '14px 28px', borderRadius: 8, minHeight: 48 }}>
+            <button className="btn-pri" style={{ fontFamily: SANS, background: ACCENT, color: '#fff', fontSize: 15, fontWeight: 600, border: 'none', padding: '14px 28px', borderRadius: 8, minHeight: 48 }}>
               Transcribe your first file free
             </button>
             <button className="btn-sec" style={{ fontFamily: SANS, background: 'transparent', color: TSUB, fontSize: 15, border: `1px solid ${BORM}`, padding: '14px 24px', borderRadius: 8, minHeight: 48 }}>
@@ -275,7 +275,7 @@ export default function App() {
           </div>
           <div style={{ padding: '16px 28px 28px', display: 'flex', gap: 8 }}>
             {['.TXT', '.SRT', '.DOCX', 'API'].map((f, i) => (
-              <div key={i} style={{ flex: 1, background: i === 0 ? TEAL : SURF2, borderRadius: 8, padding: '10px 0', textAlign: 'center', cursor: 'pointer', border: i === 0 ? 'none' : `1px solid ${BOR}` }}>
+              <div key={i} style={{ flex: 1, background: i === 0 ? ACCENT : SURF2, borderRadius: 8, padding: '10px 0', textAlign: 'center', cursor: 'pointer', border: i === 0 ? 'none' : `1px solid ${BOR}` }}>
                 <div style={{ fontFamily: SANS, fontSize: 12, fontWeight: 700, color: i === 0 ? '#fff' : TMUTE }}>{f}</div>
               </div>
             ))}
@@ -288,7 +288,7 @@ export default function App() {
         <div className="specs-g" style={{ ...wrap, display: 'grid', gridTemplateColumns: 'repeat(4,1fr)' }}>
           {SPECS.map((s, i) => (
             <div key={i} className="card-lift" style={{ padding: '28px 32px', borderRight: i < 3 ? `1px solid ${BOR}` : 'none' }}>
-              <div style={{ fontSize: 30, fontWeight: 800, color: TEAL, letterSpacing: '-0.03em', marginBottom: 4 }}>{s.val}</div>
+              <div style={{ fontSize: 30, fontWeight: 800, color: ACCENT, letterSpacing: '-0.03em', marginBottom: 4 }}>{s.val}</div>
               <div style={{ fontSize: 13, fontWeight: 600, color: TEXT, marginBottom: 3 }}>{s.label}</div>
               <div style={{ fontSize: 12, color: TMUTE, lineHeight: 1.5 }}>{s.sub}</div>
             </div>
@@ -310,10 +310,10 @@ export default function App() {
           </div>
           <div className="steps-g" style={grid('repeat(3,1fr)')}>
             {HOW_STEPS.map((s, i) => (
-              <div key={i} className={i === 1 ? '' : 'card-lift'} style={{ background: i === 1 ? TEAL : SURF, padding: '36px 30px', position: 'relative', overflow: 'hidden' }}>
+              <div key={i} className={i === 1 ? '' : 'card-lift'} style={{ background: i === 1 ? ACCENT : SURF, padding: '36px 30px', position: 'relative', overflow: 'hidden' }}>
                 <div style={{ fontSize: 72, fontWeight: 800, color: i === 1 ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.03)', position: 'absolute', top: 8, right: 16, lineHeight: 1, letterSpacing: '-0.04em', userSelect: 'none' }}>{s.n}</div>
-                <div style={{ width: 40, height: 40, borderRadius: 10, background: i === 1 ? 'rgba(255,255,255,0.15)' : TEALB, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 20 }}>
-                  <i className={`ti ${s.icon}`} style={{ fontSize: 18, color: i === 1 ? '#fff' : TEAL }} />
+                <div style={{ width: 40, height: 40, borderRadius: 10, background: i === 1 ? 'rgba(255,255,255,0.15)' : ACCENTB, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 20 }}>
+                  <i className={`ti ${s.icon}`} style={{ fontSize: 18, color: i === 1 ? '#fff' : ACCENT }} />
                 </div>
                 <div style={{ fontSize: 18, fontWeight: 700, color: i === 1 ? '#fff' : TEXT, marginBottom: 10, letterSpacing: '-0.01em' }}>{s.title}</div>
                 <div style={{ fontSize: 14, color: i === 1 ? 'rgba(255,255,255,0.72)' : TSUB, lineHeight: 1.65 }}>{s.body}</div>
@@ -336,7 +336,7 @@ export default function App() {
           <div style={{ display: 'flex', gap: 8, marginBottom: 24, flexWrap: 'wrap' }}>
             {FOR_WHO.map((w, i) => (
               <button key={i} className="who-btn" onClick={() => setActiveWho(i)}
-                style={{ fontFamily: SANS, display: 'flex', alignItems: 'center', gap: 7, fontSize: 13, fontWeight: 500, padding: '10px 18px', borderRadius: 8, minHeight: 44, border: `1px solid ${activeWho === i ? TEAL : BORM}`, background: activeWho === i ? TEALB : 'transparent', color: activeWho === i ? TEAL : TSUB, cursor: 'pointer', transition: 'all 0.15s' }}>
+                style={{ fontFamily: SANS, display: 'flex', alignItems: 'center', gap: 7, fontSize: 13, fontWeight: 500, padding: '10px 18px', borderRadius: 8, minHeight: 44, border: `1px solid ${activeWho === i ? ACCENT : BORM}`, background: activeWho === i ? ACCENTB : 'transparent', color: activeWho === i ? ACCENT : TSUB, cursor: 'pointer', transition: 'all 0.15s' }}>
                 <i className={`ti ${w.icon}`} style={{ fontSize: 14 }} />
                 {w.who}
               </button>
@@ -346,14 +346,14 @@ export default function App() {
           {/* Panel */}
           <div className="who-p" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, background: SURF, borderRadius: 12, padding: '40px 44px', alignItems: 'start' }}>
             <div>
-              <div style={{ fontSize: 11, fontWeight: 600, color: TEAL, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 12 }}>{FOR_WHO[activeWho].who}</div>
+              <div style={{ fontSize: 11, fontWeight: 600, color: ACCENT, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 12 }}>{FOR_WHO[activeWho].who}</div>
               <h3 style={{ fontSize: 24, fontWeight: 700, color: TEXT, lineHeight: 1.25, marginBottom: 14, letterSpacing: '-0.02em' }}>
                 {FOR_WHO[activeWho].headline}
               </h3>
               <p style={{ fontSize: 14, color: TSUB, lineHeight: 1.75, marginBottom: 24 }}>
                 {FOR_WHO[activeWho].body}
               </p>
-              <button className="btn-pri" style={{ fontFamily: SANS, background: TEAL, color: '#fff', fontSize: 13, fontWeight: 600, border: 'none', padding: '10px 20px', borderRadius: 7, minHeight: 44 }}>
+              <button className="btn-pri" style={{ fontFamily: SANS, background: ACCENT, color: '#fff', fontSize: 13, fontWeight: 600, border: 'none', padding: '10px 20px', borderRadius: 7, minHeight: 44 }}>
                 Try it free →
               </button>
             </div>
@@ -362,7 +362,7 @@ export default function App() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 {FOR_WHO[activeWho].tags.map((tag, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '11px 16px', background: BG, borderRadius: 8, border: `1px solid ${BOR}` }}>
-                    <i className="ti ti-check" style={{ fontSize: 13, color: TEAL, flexShrink: 0 }} />
+                    <i className="ti ti-check" style={{ fontSize: 13, color: ACCENT, flexShrink: 0 }} />
                     <span style={{ fontSize: 14, color: TEXT, fontWeight: 500 }}>{tag}</span>
                   </div>
                 ))}
@@ -390,7 +390,7 @@ export default function App() {
               <div style={{ fontSize: 12, color: TMUTE }}>{TESTIMONIALS[0].role}</div>
             </div>
             <div style={{ display: 'flex', gap: 3, alignSelf: 'flex-start' }}>
-              {[1,2,3,4,5].map(n => <i key={n} className="ti ti-star-filled" style={{ fontSize: 16, color: TEAL }} />)}
+              {[1,2,3,4,5].map(n => <i key={n} className="ti ti-star-filled" style={{ fontSize: 16, color: ACCENT }} />)}
             </div>
           </div>
 
@@ -399,7 +399,7 @@ export default function App() {
             {TESTIMONIALS.slice(1).map((t, i) => (
               <div key={i} className="card-lift" style={{ background: BG, padding: '24px 22px' }}>
                 <div style={{ display: 'flex', gap: 2, marginBottom: 12 }}>
-                  {[1,2,3,4,5].map(n => <i key={n} className="ti ti-star-filled" style={{ fontSize: 11, color: TEAL }} />)}
+                  {[1,2,3,4,5].map(n => <i key={n} className="ti ti-star-filled" style={{ fontSize: 11, color: ACCENT }} />)}
                 </div>
                 <div style={{ fontSize: 13, color: TSUB, lineHeight: 1.72, marginBottom: 16 }}>"{t.quote}"</div>
                 <div style={{ fontSize: 13, fontWeight: 600, color: TEXT }}>{t.name}</div>
@@ -424,7 +424,7 @@ export default function App() {
             {TIERS.map((t, i) => (
               <div key={i} className={t.prime ? '' : 'card-lift'} style={{ background: t.prime ? TEXT : BG, padding: '28px 20px', position: 'relative' }}>
                 {t.prime && (
-                  <div style={{ position: 'absolute', top: -11, left: '50%', transform: 'translateX(-50%)', background: TEAL, color: '#fff', fontSize: 10, fontWeight: 700, padding: '3px 10px', borderRadius: 100, whiteSpace: 'nowrap', fontFamily: SANS }}>
+                  <div style={{ position: 'absolute', top: -11, left: '50%', transform: 'translateX(-50%)', background: ACCENT, color: '#fff', fontSize: 10, fontWeight: 700, padding: '3px 10px', borderRadius: 100, whiteSpace: 'nowrap', fontFamily: SANS }}>
                     Most popular
                   </div>
                 )}
@@ -438,7 +438,7 @@ export default function App() {
                     <span style={{ fontSize: 12, color: t.prime ? '#18170F' : TSUB, lineHeight: 1.45 }}>{item}</span>
                   </div>
                 ))}
-                <button className={t.prime ? 'btn-pri' : 'btn-sec'} style={{ fontFamily: SANS, width: '100%', background: t.prime ? TEAL : 'transparent', color: t.prime ? '#fff' : TSUB, fontSize: 12, fontWeight: 600, border: `1px solid ${t.prime ? TEAL : BORM}`, padding: '10px 0', borderRadius: 6, minHeight: 44, marginTop: 20 }}>
+                <button className={t.prime ? 'btn-pri' : 'btn-sec'} style={{ fontFamily: SANS, width: '100%', background: t.prime ? ACCENT : 'transparent', color: t.prime ? '#fff' : TSUB, fontSize: 12, fontWeight: 600, border: `1px solid ${t.prime ? ACCENT : BORM}`, padding: '10px 0', borderRadius: 6, minHeight: 44, marginTop: 20 }}>
                   {t.cta}
                 </button>
               </div>
@@ -461,7 +461,7 @@ export default function App() {
             <div key={i} className="card-lift" style={{ background: SURF2, borderRadius: 12, padding: '18px 22px', marginBottom: 8, cursor: 'pointer', border: `1px solid ${BOR}` }} onClick={() => setOpenFaq(openFaq === i ? null : i)}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16 }}>
                 <span style={{ fontSize: 14, fontWeight: 500, color: TEXT }}>{f.q}</span>
-                <i className={`ti ${openFaq === i ? 'ti-minus' : 'ti-plus'}`} style={{ fontSize: 14, color: TEAL, flexShrink: 0 }} />
+                <i className={`ti ${openFaq === i ? 'ti-minus' : 'ti-plus'}`} style={{ fontSize: 14, color: ACCENT, flexShrink: 0 }} />
               </div>
               {openFaq === i && <div style={{ fontSize: 14, color: TSUB, lineHeight: 1.72, marginTop: 12, paddingRight: 24 }}>{f.a}</div>}
             </div>
@@ -475,7 +475,7 @@ export default function App() {
           <div>
             <h2 style={{ fontSize: 36, fontWeight: 700, lineHeight: 1.15, color: '#18170F', marginBottom: 12, letterSpacing: '-0.03em' }}>
               Your recordings hold more<br />
-              <span style={{ color: TEALD }}>value than you're extracting</span><br />
+              <span style={{ color: ACCENTD }}>value than you're extracting</span><br />
               from them.
             </h2>
             <p style={{ fontSize: 14, color: '#6A6860', lineHeight: 1.65, marginBottom: 24 }}>
@@ -501,7 +501,7 @@ export default function App() {
         <div style={{ ...wrap, display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: 48 }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
-              <div style={{ width: 24, height: 24, borderRadius: 6, background: TEAL, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ width: 24, height: 24, borderRadius: 6, background: ACCENT, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <i className="ti ti-microphone" style={{ fontSize: 12, color: '#fff' }} />
               </div>
               <span style={{ fontSize: 14, fontWeight: 700, color: TEXT, letterSpacing: '-0.02em' }}>MediaScriber</span>
