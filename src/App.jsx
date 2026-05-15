@@ -1,19 +1,19 @@
 import { useState } from "react";
 
 const SANS  = "'Inter', -apple-system, BlinkMacSystemFont, sans-serif";
-const BG    = '#FAFAF8';
-const SURF  = '#F2F1EE';
-const SURF2 = '#ECEAE5';
-const BOR   = 'rgba(26,25,22,0.09)';
-const BORM  = 'rgba(26,25,22,0.16)';
-const TEXT  = '#18170F';
-const TSUB  = '#6A6860';
-const TMUTE = '#A8A49C';
-const TEAL  = '#0D9488';
-const TEALB = 'rgba(13,148,136,0.09)';
-const TEALD = '#0A7A70';
-const GRN   = '#16A34A';
-const GRNB  = 'rgba(22,163,74,0.09)';
+const BG    = '#11100E';
+const SURF  = '#1A1816';
+const SURF2 = '#211F1D';
+const BOR   = 'rgba(255,255,255,0.06)';
+const BORM  = 'rgba(255,255,255,0.1)';
+const TEXT  = '#F0EBE4';
+const TSUB  = '#B0A89E';
+const TMUTE = '#7D766E';
+const TEAL  = '#14B8A6';
+const TEALB = 'rgba(20,184,166,0.1)';
+const TEALD = '#0F9E8E';
+const GRN   = '#22C55E';
+const GRNB  = 'rgba(34,197,94,0.1)';
 
 const MOCK_LINES = [
   { speaker: 'Priya',  color: TEAL,     time: '00:00', text: 'Most podcasters never use 80% of what they record.' },
@@ -170,17 +170,18 @@ export default function App() {
 
         .who-btn { transition: all 0.15s ease !important; }
         .who-btn:hover { border-color: ${TEAL} !important; color: ${TEAL} !important; }
-        .nav-link { transition: color 0.15s ease; }
+        .nav-link { transition: color 0.15s ease; cursor: pointer; }
         .nav-link:hover { color: ${TEXT} !important; }
 
         @media (max-width: 1023px) {
           .hero-g { grid-template-columns: 1fr !important; gap: 40px !important; }
         }
         @media (max-width: 768px) {
-          .hero-g { gap: 32px !important; text-align: center !important; }
-          .hero-g p { max-width: 100% !important; }
-          .hero-b { flex-direction: column !important; }
-          .hero-b button { width: 100% !important; }
+          section { padding: 48px 20px !important; }
+          h1 { font-size: 36px !important; }
+          h2 { font-size: 26px !important; }
+          .hero-b { flex-direction: column !important; align-items: center !important; }
+          .hero-b button { width: 100% !important; max-width: 320px !important; }
           .specs-g { grid-template-columns: repeat(2,1fr) !important; }
           .steps-g { grid-template-columns: 1fr !important; }
           .who-p { grid-template-columns: 1fr !important; padding: 24px !important; }
@@ -188,15 +189,16 @@ export default function App() {
           .t-g { grid-template-columns: repeat(2,1fr) !important; }
           .p-g { grid-template-columns: repeat(2,1fr) !important; }
           .nav-d { display: none !important; }
-          section { padding: 48px 20px !important; }
-          h1 { font-size: 36px !important; }
-          h2 { font-size: 26px !important; }
         }
         @media (max-width: 480px) {
           .specs-g { grid-template-columns: 1fr !important; }
           .t-g { grid-template-columns: 1fr !important; }
           .p-g { grid-template-columns: 1fr !important; }
           h1 { font-size: 30px !important; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          *, *::before, *::after { animation: none !important; transition: none !important; }
         }
       `}</style>
 
@@ -223,63 +225,62 @@ export default function App() {
       </nav>
 
       {/* HERO */}
-      <section style={{ padding: '80px 32px 88px', ...wrap, background: `linear-gradient(180deg, ${BG} 0%, ${SURF} 100%)`, borderRadius: '0 0 24px 24px' }}>
-        <div className="hero-g" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
-
-          {/* LEFT */}
-          <div className="fade-up">
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: TEAL, background: TEALB, padding: '4px 12px', borderRadius: 100, marginBottom: 24 }}>
-              <i className="ti ti-sparkles" style={{ fontSize: 11 }} />
-              99.5% accurate transcription
-            </div>
-            <h1 style={{ fontSize: 48, fontWeight: 700, lineHeight: 1.1, color: TEXT, marginBottom: 20, letterSpacing: '-0.03em' }}>
-              Stop digging through hours<br />of audio. Find any quote,<br />any speaker, in seconds.
-            </h1>
-            <p style={{ fontSize: 16, color: TSUB, lineHeight: 1.7, marginBottom: 12, maxWidth: 420 }}>
-              Upload audio or video. Get an accurate, speaker-labelled transcript in minutes — not hours.
-            </p>
-            <p style={{ fontSize: 15, color: TMUTE, lineHeight: 1.65, marginBottom: 32, maxWidth: 420 }}>
-              MediaScriber identifies who said what, timestamps every line, and exports in the format you need. Your recordings keep working long after they end.
-            </p>
-            <div className="hero-b" style={{ display: 'flex', gap: 10, marginBottom: 20 }}>
-              <button className="btn-pri" style={{ fontFamily: SANS, background: TEAL, color: '#fff', fontSize: 14, fontWeight: 600, border: 'none', padding: '12px 24px', borderRadius: 8, minHeight: 48 }}>
-                Transcribe your first file free
-              </button>
-              <button className="btn-sec" style={{ fontFamily: SANS, background: 'transparent', color: TSUB, fontSize: 14, border: `1px solid ${BORM}`, padding: '12px 20px', borderRadius: 8, minHeight: 48 }}>
-                View pricing
-              </button>
-            </div>
-            <p style={{ fontSize: 12, color: TMUTE }}>First 30 min free · No credit card · No software to install</p>
+      <section style={{ position: 'relative', overflow: 'hidden', padding: '120px 32px 80px', textAlign: 'center' }}>
+        <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse 600px 400px at 50% 40%, ${TEAL}15, transparent 70%)`, pointerEvents: 'none' }} />
+        <div style={{ position: 'relative', maxWidth: 720, margin: '0 auto' }}>
+          <div className="fade-up" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: TEAL, background: TEALB, padding: '5px 14px', borderRadius: 100, marginBottom: 28 }}>
+            <i className="ti ti-sparkles" style={{ fontSize: 11 }} />
+            99.5% accurate transcription
           </div>
+          <h1 className="fade-up" style={{ fontSize: 52, fontWeight: 700, lineHeight: 1.05, color: TEXT, marginBottom: 20, letterSpacing: '-0.03em' }}>
+            Stop digging through hours<br />of audio. Find any quote,<br />any speaker, in seconds.
+          </h1>
+          <p className="fade-up" style={{ fontSize: 17, color: TSUB, lineHeight: 1.7, marginBottom: 12, maxWidth: 600, marginLeft: 'auto', marginRight: 'auto' }}>
+            Upload audio or video. Get an accurate, speaker-labelled transcript in minutes — not hours.
+          </p>
+          <p className="fade-up" style={{ fontSize: 15, color: TMUTE, lineHeight: 1.65, marginBottom: 36, maxWidth: 520, marginLeft: 'auto', marginRight: 'auto' }}>
+            MediaScriber identifies who said what, timestamps every line, and exports in the format you need.
+          </p>
+          <div className="fade-up hero-b" style={{ display: 'flex', gap: 10, justifyContent: 'center', marginBottom: 16 }}>
+            <button className="btn-pri" style={{ fontFamily: SANS, background: TEAL, color: '#fff', fontSize: 15, fontWeight: 600, border: 'none', padding: '14px 28px', borderRadius: 8, minHeight: 48 }}>
+              Transcribe your first file free
+            </button>
+            <button className="btn-sec" style={{ fontFamily: SANS, background: 'transparent', color: TSUB, fontSize: 15, border: `1px solid ${BORM}`, padding: '14px 24px', borderRadius: 8, minHeight: 48 }}>
+              View pricing
+            </button>
+          </div>
+          <p style={{ fontSize: 12, color: TMUTE }}>First 30 min free · No credit card · No software to install</p>
+        </div>
+      </section>
 
-          {/* RIGHT — transcript mock */}
-          <div className="fade-up" style={{ background: '#111', borderRadius: 14, overflow: 'hidden', boxShadow: '0 24px 80px rgba(0,0,0,0.18)', animationDelay: '0.15s' }}>
-            <div style={{ padding: '11px 16px', background: '#1A1A1A', display: 'flex', alignItems: 'center', gap: 6, borderBottom: '1px solid #2A2A2A' }}>
-              {['#FF5F57','#FEBC2E','#28C840'].map((c, i) => (
-                <div key={i} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />
-              ))}
-              <span style={{ marginLeft: 8, fontSize: 11, color: '#555' }}>episode_247_final.mp3 · 58:32</span>
-              <div style={{ marginLeft: 'auto', fontSize: 10, color: GRN, fontWeight: 600 }}>● Transcribed</div>
-            </div>
-            <div style={{ padding: '22px 22px 10px' }}>
-              {MOCK_LINES.map((line, i) => (
-                <div key={i} style={{ marginBottom: 18, opacity: i > 2 ? 0.55 : 1 }}>
-                  <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 5 }}>
-                    <div style={{ width: 6, height: 6, borderRadius: '50%', background: line.color, flexShrink: 0 }} />
-                    <span style={{ fontSize: 11, fontWeight: 600, color: line.color }}>{line.speaker}</span>
-                    <span style={{ fontSize: 10, color: '#3A3A3A' }}>{line.time}</span>
-                  </div>
-                  <p style={{ fontSize: 13, color: '#C0BCB4', lineHeight: 1.6, margin: 0, paddingLeft: 14 }}>{line.text}</p>
+      {/* PRODUCT PREVIEW — transcript mock */}
+      <section style={{ padding: '0 32px 96px', ...wrap }}>
+        <div className="fade-up" style={{ background: SURF2, borderRadius: 16, overflow: 'hidden', boxShadow: '0 32px 96px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.06)', animationDelay: '0.15s' }}>
+          <div style={{ padding: '12px 18px', background: '#181614', display: 'flex', alignItems: 'center', gap: 8, borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+            {['#FF5F57','#FEBC2E','#28C840'].map((c, i) => (
+              <div key={i} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />
+            ))}
+            <span style={{ marginLeft: 8, fontSize: 11, color: '#555' }}>episode_247_final.mp3 · 58:32</span>
+            <div style={{ marginLeft: 'auto', fontSize: 10, color: GRN, fontWeight: 600 }}>● Transcribed</div>
+          </div>
+          <div style={{ padding: '28px 28px 12px' }}>
+            {MOCK_LINES.map((line, i) => (
+              <div key={i} style={{ marginBottom: 20, opacity: i > 2 ? 0.5 : 1 }}>
+                <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 5 }}>
+                  <div style={{ width: 6, height: 6, borderRadius: '50%', background: line.color, flexShrink: 0 }} />
+                  <span style={{ fontSize: 12, fontWeight: 600, color: line.color }}>{line.speaker}</span>
+                  <span style={{ fontSize: 10, color: '#555' }}>{line.time}</span>
                 </div>
-              ))}
-            </div>
-            <div style={{ padding: '14px 22px 22px', display: 'flex', gap: 6 }}>
-              {['.TXT', '.SRT', '.DOCX', 'API'].map((f, i) => (
-                <div key={i} style={{ flex: 1, background: i === 0 ? TEAL : '#1E1E1E', borderRadius: 6, padding: '8px 0', textAlign: 'center', cursor: 'pointer' }}>
-                  <div style={{ fontFamily: SANS, fontSize: 11, fontWeight: 700, color: i === 0 ? '#fff' : '#555' }}>{f}</div>
-                </div>
-              ))}
-            </div>
+                <p style={{ fontSize: 14, color: '#C0BCB4', lineHeight: 1.6, margin: 0, paddingLeft: 14 }}>{line.text}</p>
+              </div>
+            ))}
+          </div>
+          <div style={{ padding: '16px 28px 28px', display: 'flex', gap: 8 }}>
+            {['.TXT', '.SRT', '.DOCX', 'API'].map((f, i) => (
+              <div key={i} style={{ flex: 1, background: i === 0 ? TEAL : SURF2, borderRadius: 8, padding: '10px 0', textAlign: 'center', cursor: 'pointer', border: i === 0 ? 'none' : `1px solid ${BOR}` }}>
+                <div style={{ fontFamily: SANS, fontSize: 12, fontWeight: 700, color: i === 0 ? '#fff' : TMUTE }}>{f}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -312,7 +313,7 @@ export default function App() {
           <div className="steps-g" style={grid('repeat(3,1fr)')}>
             {HOW_STEPS.map((s, i) => (
               <div key={i} className={i === 1 ? '' : 'card-lift'} style={{ background: i === 1 ? TEAL : SURF, padding: '36px 30px', position: 'relative', overflow: 'hidden' }}>
-                <div style={{ fontSize: 72, fontWeight: 800, color: i === 1 ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)', position: 'absolute', top: 8, right: 16, lineHeight: 1, letterSpacing: '-0.04em', userSelect: 'none' }}>{s.n}</div>
+                <div style={{ fontSize: 72, fontWeight: 800, color: i === 1 ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.03)', position: 'absolute', top: 8, right: 16, lineHeight: 1, letterSpacing: '-0.04em', userSelect: 'none' }}>{s.n}</div>
                 <div style={{ width: 40, height: 40, borderRadius: 10, background: i === 1 ? 'rgba(255,255,255,0.15)' : TEALB, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 20 }}>
                   <i className={`ti ${s.icon}`} style={{ fontSize: 18, color: i === 1 ? '#fff' : TEAL }} />
                 </div>
@@ -459,53 +460,76 @@ export default function App() {
             <span style={{ fontSize: 13, color: TMUTE }}>{FAQS.length} answers</span>
           </div>
           {FAQS.map((f, i) => (
-            <div key={i} className="card-lift" style={{ borderTop: `1px solid ${BOR}`, padding: '15px 0', cursor: 'pointer', borderRadius: 8 }} onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+            <div key={i} className="card-lift" style={{ background: SURF2, borderRadius: 12, padding: '18px 22px', marginBottom: 8, cursor: 'pointer', border: `1px solid ${BOR}` }} onClick={() => setOpenFaq(openFaq === i ? null : i)}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16 }}>
                 <span style={{ fontSize: 14, fontWeight: 500, color: TEXT }}>{f.q}</span>
                 <i className={`ti ${openFaq === i ? 'ti-minus' : 'ti-plus'}`} style={{ fontSize: 14, color: TEAL, flexShrink: 0 }} />
               </div>
-              {openFaq === i && <div style={{ fontSize: 14, color: TSUB, lineHeight: 1.72, marginTop: 10, paddingRight: 24 }}>{f.a}</div>}
+              {openFaq === i && <div style={{ fontSize: 14, color: TSUB, lineHeight: 1.72, marginTop: 12, paddingRight: 24 }}>{f.a}</div>}
             </div>
           ))}
-          <div style={{ borderTop: `1px solid ${BOR}` }} />
         </div>
       </section>
 
       {/* BOTTOM CTA */}
-      <section style={{ borderTop: `1px solid ${BOR}`, padding: '88px 32px', background: `linear-gradient(160deg, ${TEXT} 0%, #2A2A24 100%)`, textAlign: 'center' }}>
-        <div style={{ maxWidth: 520, margin: '0 auto' }}>
-          <h2 style={{ fontSize: 40, fontWeight: 800, lineHeight: 1.1, color: '#fff', marginBottom: 14, letterSpacing: '-0.03em' }}>
-            Your recordings hold more<br />
-            <span style={{ color: TEAL }}>value than you're extracting</span><br />
-            from them.
-          </h2>
-          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.4)', marginBottom: 32, lineHeight: 1.65 }}>
-            Start with 30 minutes free. No credit card. No software.
-          </p>
-          <button className="btn-pri" style={{ fontFamily: SANS, background: TEAL, color: '#fff', fontSize: 15, fontWeight: 700, border: 'none', padding: '14px 32px', borderRadius: 9, minHeight: 48, marginBottom: 14 }}>
-            Upload your first file →
-          </button>
-          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.2)' }}>
-            Free plan · No credit card required · Cancel anytime
+      <section style={{ padding: '0 32px 96px', ...wrap }}>
+        <div style={{ background: '#F4EFE8', borderRadius: 20, padding: '64px 48px', display: 'grid', gridTemplateColumns: '1fr auto', gap: 48, alignItems: 'center', boxShadow: '0 32px 80px rgba(0,0,0,0.25)' }}>
+          <div>
+            <h2 style={{ fontSize: 36, fontWeight: 700, lineHeight: 1.15, color: '#18170F', marginBottom: 12, letterSpacing: '-0.03em' }}>
+              Your recordings hold more<br />
+              <span style={{ color: TEALD }}>value than you're extracting</span><br />
+              from them.
+            </h2>
+            <p style={{ fontSize: 14, color: '#6A6860', lineHeight: 1.65, marginBottom: 24 }}>
+              Start with 30 minutes free. No credit card. No software.
+            </p>
+            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+              {['.MP3', '.MP4', '.WAV', '.M4A', '.FLAC', '+ more'].map((tag, i) => (
+                <div key={i} style={{ fontSize: 11, fontWeight: 600, color: '#6A6860', background: 'rgba(0,0,0,0.05)', padding: '4px 12px', borderRadius: 100 }}>{tag}</div>
+              ))}
+            </div>
+          </div>
+          <div style={{ textAlign: 'center' }}>
+            <button className="btn-pri" style={{ fontFamily: SANS, background: '#18170F', color: '#F4EFE8', fontSize: 15, fontWeight: 700, border: 'none', padding: '14px 32px', borderRadius: 10, minHeight: 48, marginBottom: 12, whiteSpace: 'nowrap' }}>
+              Upload your first file →
+            </button>
+            <div style={{ fontSize: 12, color: '#A8A49C' }}>Free plan · No card · Cancel anytime</div>
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer style={{ borderTop: '1px solid rgba(255,255,255,0.06)', padding: '28px 32px', background: '#111' }}>
-        <div style={{ ...wrap, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <div style={{ width: 22, height: 22, borderRadius: 6, background: TEAL, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <i className="ti ti-microphone" style={{ fontSize: 11, color: '#fff' }} />
+      <footer style={{ borderTop: `1px solid ${BOR}`, padding: '48px 32px 36px', background: BG }}>
+        <div style={{ ...wrap, display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: 48 }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
+              <div style={{ width: 24, height: 24, borderRadius: 6, background: TEAL, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <i className="ti ti-microphone" style={{ fontSize: 12, color: '#fff' }} />
+              </div>
+              <span style={{ fontSize: 14, fontWeight: 700, color: TEXT, letterSpacing: '-0.02em' }}>MediaScriber</span>
             </div>
-            <span style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.35)' }}>MediaScriber</span>
+            <p style={{ fontSize: 12, color: TMUTE, lineHeight: 1.6, maxWidth: 240 }}>AI-powered transcription for creators, journalists, and teams.</p>
           </div>
-          <div style={{ display: 'flex', gap: 24 }}>
-            {['Privacy Policy', 'Terms'].map(l => (
-              <span key={l} style={{ fontSize: 12, color: 'rgba(255,255,255,0.2)', cursor: 'pointer' }}>{l}</span>
+          <div>
+            <div style={{ fontSize: 11, fontWeight: 600, color: TMUTE, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 14 }}>Product</div>
+            {['Features', 'Pricing', 'API', 'Integrations'].map(l => (
+              <div key={l} className="nav-link" style={{ fontSize: 13, color: TSUB, marginBottom: 8, cursor: 'pointer' }}>{l}</div>
             ))}
           </div>
-          <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.15)' }}>© 2026 Noesis Knowledge Solutions. All rights reserved.</span>
+          <div>
+            <div style={{ fontSize: 11, fontWeight: 600, color: TMUTE, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 14 }}>Company</div>
+            {['Privacy Policy', 'Terms of Service', 'Contact'].map(l => (
+              <div key={l} className="nav-link" style={{ fontSize: 13, color: TSUB, marginBottom: 8, cursor: 'pointer' }}>{l}</div>
+            ))}
+          </div>
+        </div>
+        <div style={{ ...wrap, borderTop: `1px solid ${BOR}`, marginTop: 32, paddingTop: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <span style={{ fontSize: 11, color: TMUTE }}>© 2026 Noesis Knowledge Solutions. All rights reserved.</span>
+          <div style={{ display: 'flex', gap: 16 }}>
+            {['X', 'GitHub', 'LinkedIn'].map(s => (
+              <span key={s} className="nav-link" style={{ fontSize: 11, color: TMUTE, cursor: 'pointer' }}>{s}</span>
+            ))}
+          </div>
         </div>
       </footer>
     </div>
