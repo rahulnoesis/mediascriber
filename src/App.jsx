@@ -311,12 +311,12 @@ export default function App() {
           <div className="steps-g" style={grid('repeat(3,1fr)')}>
             {HOW_STEPS.map((s, i) => (
                 <div key={i} className={i === 1 ? '' : 'card-lift'} style={{ background: i === 1 ? '#fff' : SURF, padding: '36px 30px', position: 'relative', overflow: 'hidden' }}>
-                <div style={{ fontSize: 72, fontWeight: 800, color: i === 1 ? 'rgba(0,0,0,0.04)' : 'rgba(255,255,255,0.03)', position: 'absolute', top: 8, right: 16, lineHeight: 1, letterSpacing: '-0.04em', userSelect: 'none' }}>{s.n}</div>
-                <div style={{ width: 40, height: 40, borderRadius: 10, background: i === 1 ? 'rgba(0,0,0,0.06)' : ACCENTB, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 20 }}>
+                <div style={{ fontSize: 72, fontWeight: 800, color: i === 1 ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.03)', position: 'absolute', top: 8, right: 16, lineHeight: 1, letterSpacing: '-0.04em', userSelect: 'none' }}>{s.n}</div>
+                <div style={{ width: 40, height: 40, borderRadius: 10, background: i === 1 ? 'rgba(0,0,0,0.07)' : ACCENTB, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 20 }}>
                   <i className={`ti ${s.icon}`} style={{ fontSize: 18, color: i === 1 ? '#000' : ACCENT }} />
                 </div>
                 <div style={{ fontSize: 18, fontWeight: 700, color: i === 1 ? '#000' : TEXT, marginBottom: 10, letterSpacing: '-0.01em' }}>{s.title}</div>
-                <div style={{ fontSize: 14, color: i === 1 ? 'rgba(0,0,0,0.6)' : TSUB, lineHeight: 1.65 }}>{s.body}</div>
+                <div style={{ fontSize: 14, color: i === 1 ? '#444' : TSUB, lineHeight: 1.65 }}>{s.body}</div>
               </div>
             ))}
           </div>
