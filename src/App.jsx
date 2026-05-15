@@ -30,9 +30,9 @@ const SPECS = [
 ];
 
 const HOW_STEPS = [
-  { n: '01', icon: 'ti-upload',       title: 'Upload your file',         body: 'Any audio or video file, up to 1GB. No software, no account — just upload and go.' },
-  { n: '02', icon: 'ti-cpu',          title: 'We process it',            body: '99.5% accuracy. Every speaker identified, every line timestamped. Delivered in minutes.' },
-  { n: '03', icon: 'ti-file-export',  title: 'Export and use it',        body: 'Download TXT, SRT, or DOCX. Edit inline, search by speaker, or integrate via API.' },
+  { n: '01', icon: 'ti-upload',       title: 'Upload your file',         body: 'Any audio or video file, up to 1GB.' },
+  { n: '02', icon: 'ti-cpu',          title: 'We process it',            body: '99.5% accuracy. Speaker-labelled. Timestamped. In minutes.' },
+  { n: '03', icon: 'ti-file-export',  title: 'Export and use it',        body: 'Download TXT, SRT, DOCX, or integrate via API.' },
 ];
 
 const FOR_WHO = [
@@ -40,28 +40,28 @@ const FOR_WHO = [
     icon: 'ti-microphone-2',
     who: 'Podcast producers',
     headline: 'Turn every episode into content that works for weeks.',
-    body: "You record an hour. You use ten minutes. MediaScriber unlocks the rest — show notes, clips, transcripts, a searchable archive. One episode. Weeks of useful content.",
+    body: "You record an hour. MediaScriber turns the other fifty minutes into clips, show notes, and transcripts.",
     tags: ['Show notes', 'Clip selection', 'SEO content', 'Guest quotes'],
   },
   {
     icon: 'ti-news',
     who: 'Journalists and researchers',
     headline: "Every source. Every word. Accounted for.",
-    body: "Every interview becomes a timestamped, speaker-labelled record you can search and export. No more scrubbing through audio for the right quote. It's exactly where you left it.",
+    body: "Timestamped, speaker-labelled interview records you can search and export. Every quote exactly where you left it.",
     tags: ['Interview records', 'Speaker attribution', 'Source verification', 'Archive search'],
   },
   {
     icon: 'ti-video',
     who: 'Video creators',
     headline: 'Captions, scripts, subtitles. One upload.',
-    body: "Upload once. Get SRT captions, DOCX transcripts, and TXT metadata in a single pass. Your entire video library becomes searchable — without manual work.",
+    body: "Upload once. Get SRT captions, DOCX transcripts, and TXT metadata. Your library becomes searchable overnight.",
     tags: ['Auto-captions', 'Subtitle files', 'Script export', 'SEO metadata'],
   },
   {
     icon: 'ti-building',
     who: 'Teams and agencies',
     headline: 'Volume transcription. Zero overhead.',
-    body: "Shared workspaces, bulk uploads, usage controls, and API access built for teams that transcribe at scale. Predictable pricing as your volume grows.",
+    body: "Shared workspaces, bulk uploads, and API access for teams that transcribe at scale.",
     tags: ['Bulk processing', 'Team workspace', 'API access', 'Usage controls'],
   },
 ];
@@ -100,25 +100,25 @@ const TIERS = [
 ];
 
 const TESTIMONIALS = [
-  { quote: "I used to budget an hour after every episode just for transcript cleanup. MediaScriber does it in four minutes — with better accuracy than my manual process. That's 56 minutes back per episode.", name: "Aryan V.", role: "Podcast Producer, 3 shows weekly" },
-  { quote: "Fifteen to twenty research interviews a month. Speaker-labelled transcripts, delivered automatically. It changed how our team finds insights. We catch patterns we used to miss.", name: "Meera S.", role: "UX Research Lead" },
-  { quote: "I interview two to three guests per episode. Every other tool mixes up who said what. MediaScriber gets it right — every single time.", name: "Kabir T.", role: "Independent Journalist" },
-  { quote: "We connected the MediaScriber API to our video pipeline. Captions, transcripts, search — fully automated. Our editors stopped asking for better tools and started shipping faster.", name: "Priya N.", role: "Head of Production, Media Agency" },
-  { quote: "Over 200 recorded lectures. MediaScriber turned all of them into a searchable archive — in a weekend. My students actually search the archive now. That never happened before.", name: "Dr. Suresh R.", role: "Professor and Educator" },
+  { quote: "MediaScriber saves me 56 minutes per episode. The accuracy is better than what I was doing manually.", name: "Aryan V.", role: "Podcast Producer, 3 shows weekly" },
+  { quote: "Speaker-labelled transcripts, delivered automatically. It changed how our team finds insights.", name: "Meera S.", role: "UX Research Lead" },
+  { quote: "Every other tool mixes up who said what. MediaScriber gets it right — every single time.", name: "Kabir T.", role: "Independent Journalist" },
+  { quote: "We connected the API to our video pipeline. Captions, transcripts, search — fully automated.", name: "Priya N.", role: "Head of Production, Media Agency" },
+  { quote: "Over 200 lectures turned into a searchable archive in a weekend. My students actually use it now.", name: "Dr. Suresh R.", role: "Professor and Educator" },
 ];
 
 const FAQS = [
-  { q: "How accurate is MediaScriber?",                a: "99.5% on clear audio. We outperform automated transcription from Otter.ai and Rev across accents, industries, and real-world recording conditions." },
-  { q: "How does speaker diarization work?",           a: "MediaScriber automatically identifies and labels each unique voice — up to 10 speakers per file. Rename labels in the editor after transcription." },
-  { q: "What file formats do you accept?",             a: "MP3, MP4, WAV, M4A, FLAC, OGG, WEBM, and most common audio and video formats. Maximum file size is 1GB." },
+  { q: "How accurate is MediaScriber?",                a: "99.5% on clear audio. We outperform Otter.ai and Rev across accents, industries, and real-world recording conditions." },
+  { q: "How does speaker diarization work?",           a: "MediaScriber identifies and labels each unique voice — up to 10 speakers per file. Rename labels in the editor after transcription." },
+  { q: "What file formats do you accept?",             a: "MP3, MP4, WAV, M4A, FLAC, OGG, WEBM, and most common formats. Maximum file size is 1GB." },
   { q: "How long does transcription take?",            a: "Most files process in 2–5 minutes. We'll notify you when your transcript is ready." },
-  { q: "Is the API available on all plans?",           a: "API access is included on Growth, Professional, and Enterprise plans. Find your keys and documentation in your account dashboard." },
-  { q: "How does the free plan work?",                 a: "Five transcriptions per month, 30 minutes per file. No credit card required. Designed for you to test on real files before you commit." },
-  { q: "Is my content stored securely?",               a: "Encrypted in transit and at rest. You own your content. Delete files and transcripts from your dashboard anytime." },
-  { q: "How is MediaScriber different from Otter?",    a: "Otter is built for live meetings. MediaScriber is optimised for recorded content — higher accuracy on pre-recorded files, with speaker diarization included on every paid plan." },
-  { q: "Can my team collaborate on transcripts?",      a: "Yes. Starter and above include team access. Enterprise includes unlimited members with guest access from a shared workspace." },
+  { q: "Is the API available on all plans?",           a: "Yes, on Growth, Professional, and Enterprise plans. Find your keys and docs in your account dashboard." },
+  { q: "How does the free plan work?",                 a: "Five transcriptions per month, 30 minutes per file. No credit card required." },
+  { q: "Is my content stored securely?",               a: "Encrypted in transit and at rest. You own your content. Delete files and transcripts anytime." },
+  { q: "How is MediaScriber different from Otter?",    a: "Otter is built for live meetings. MediaScriber is optimised for recorded content — higher accuracy on pre-recorded files." },
+  { q: "Can my team collaborate on transcripts?",      a: "Yes. Starter and above include team access. Enterprise includes unlimited members and guest access." },
   { q: "What languages are supported?",                a: "50+ languages. Auto-detected from your audio, or set manually before processing." },
-  { q: "Can I cancel anytime?",                        a: "Yes. No contracts. Cancel from your account settings — access continues until the end of your billing period." },
+  { q: "Can I cancel anytime?",                        a: "Yes. No contracts. Cancel from your account settings. Access continues until end of billing period." },
 ];
 
 function Tag({ children }) {
@@ -235,11 +235,8 @@ export default function App() {
           <h1 className="fade-up" style={{ fontSize: 52, fontWeight: 700, lineHeight: 1.05, color: TEXT, marginBottom: 20, letterSpacing: '-0.03em' }}>
             Stop digging through hours<br />of audio. Find any quote,<br />any speaker, in seconds.
           </h1>
-          <p className="fade-up" style={{ fontSize: 17, color: TSUB, lineHeight: 1.7, marginBottom: 12, maxWidth: 600, marginLeft: 'auto', marginRight: 'auto' }}>
+          <p className="fade-up" style={{ fontSize: 17, color: TSUB, lineHeight: 1.7, marginBottom: 36, maxWidth: 600, marginLeft: 'auto', marginRight: 'auto' }}>
             Upload audio or video. Get an accurate, speaker-labelled transcript in minutes — not hours.
-          </p>
-          <p className="fade-up" style={{ fontSize: 15, color: TMUTE, lineHeight: 1.65, marginBottom: 36, maxWidth: 520, marginLeft: 'auto', marginRight: 'auto' }}>
-            MediaScriber identifies who said what, timestamps every line, and exports in the format you need.
           </p>
           <div className="fade-up hero-b" style={{ display: 'flex', gap: 10, justifyContent: 'center', marginBottom: 16 }}>
             <button className="btn-pri" style={{ fontFamily: SANS, background: TEAL, color: '#fff', fontSize: 15, fontWeight: 600, border: 'none', padding: '14px 28px', borderRadius: 8, minHeight: 48 }}>
