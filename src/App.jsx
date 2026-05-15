@@ -151,6 +151,7 @@ export default function App() {
         html { scroll-behavior: smooth; }
         * { box-sizing: border-box; }
         ::selection { background: ${TEAL}22; }
+        section[id] { scroll-margin-top: 60px; }
 
         .fade-up { animation: fadeUp 0.5s ease both; }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
@@ -213,7 +214,7 @@ export default function App() {
           </div>
           <div className="nav-d" style={{ display: 'flex', gap: 24, alignItems: 'center' }}>
             {['Features', 'How it Works', 'Pricing', 'FAQ'].map(l => (
-              <span key={l} className="nav-link" style={{ fontSize: 13, color: TSUB, cursor: 'pointer' }}>{l}</span>
+              <span key={l} className="nav-link" style={{ fontSize: 13, color: TSUB, cursor: 'pointer' }} onClick={() => document.getElementById(l.toLowerCase().replace(' ', '-'))?.scrollIntoView({ behavior: 'smooth' })}>{l}</span>
             ))}
             <div style={{ width: 1, height: 16, background: BOR }} />
             <span style={{ fontSize: 13, color: TSUB, cursor: 'pointer' }}>Sign in</span>
@@ -251,7 +252,7 @@ export default function App() {
       </section>
 
       {/* PRODUCT PREVIEW — transcript mock */}
-      <section style={{ padding: '0 32px 96px', ...wrap }}>
+      <section id="features" style={{ padding: '0 32px 96px', ...wrap }}>
         <div className="fade-up" style={{ background: SURF2, borderRadius: 16, overflow: 'hidden', boxShadow: '0 32px 96px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.06)', animationDelay: '0.15s' }}>
           <div style={{ padding: '12px 18px', background: '#181614', display: 'flex', alignItems: 'center', gap: 8, borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
             {['#FF5F57','#FEBC2E','#28C840'].map((c, i) => (
@@ -296,7 +297,7 @@ export default function App() {
       </div>
 
       {/* HOW IT WORKS */}
-      <section style={sec}>
+      <section id="how-it-works" style={sec}>
         <div style={wrap}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 40 }}>
             <div>
@@ -410,7 +411,7 @@ export default function App() {
       </section>
 
       {/* PRICING */}
-      <section style={{ ...sec, background: SURF }}>
+      <section id="pricing" style={{ ...sec, background: SURF }}>
         <div style={wrap}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 44 }}>
             <div>
@@ -447,7 +448,7 @@ export default function App() {
       </section>
 
       {/* FAQ */}
-      <section style={sec}>
+      <section id="faq" style={sec}>
         <div style={{ maxWidth: 680, margin: '0 auto' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 44 }}>
             <div>
