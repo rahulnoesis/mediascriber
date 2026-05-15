@@ -1,17 +1,17 @@
 import { useState } from "react";
 
 const SANS  = "'Inter', -apple-system, BlinkMacSystemFont, sans-serif";
-const BG    = '#000000';
-const SURF  = '#0A0A0A';
-const SURF2 = '#141414';
+const BG    = '#09090B';
+const SURF  = '#18181B';
+const SURF2 = '#27272A';
 const BOR   = 'rgba(255,255,255,0.06)';
 const BORM  = 'rgba(255,255,255,0.1)';
-const TEXT  = '#FFFFFF';
-const TSUB  = '#A0A0A0';
-const TMUTE = '#606060';
-const ACCENT  = '#FFFFFF';
-const ACCENTB = 'rgba(255,255,255,0.08)';
-const ACCENTD = '#E0E0E0';
+const TEXT  = '#FAFAFA';
+const TSUB  = '#A1A1AA';
+const TMUTE = '#71717A';
+const ACCENT  = '#D4D4D8';
+const ACCENTB = 'rgba(255,255,255,0.06)';
+const ACCENTD = '#A1A1AA';
 const GRN   = '#22C55E';
 const GRNB  = 'rgba(34,197,94,0.1)';
 
@@ -208,7 +208,7 @@ export default function App() {
         <div style={{ ...wrap, display: 'flex', alignItems: 'center', height: 54 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginRight: 'auto' }}>
             <div style={{ width: 26, height: 26, borderRadius: 7, background: ACCENT, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <i className="ti ti-microphone" style={{ fontSize: 13, color: '#000' }} />
+              <i className="ti ti-microphone" style={{ fontSize: 13, color: BG }} />
             </div>
             <span style={{ fontSize: 14, fontWeight: 700, color: TEXT, letterSpacing: '-0.02em' }}>MediaScriber</span>
           </div>
@@ -240,7 +240,7 @@ export default function App() {
             Upload audio or video. Get an accurate, speaker-labelled transcript in minutes — not hours.
           </p>
           <div className="fade-up hero-b" style={{ display: 'flex', gap: 10, justifyContent: 'center', marginBottom: 16 }}>
-            <button className="btn-pri" style={{ fontFamily: SANS, background: '#F4EFE8', color: '#18170F', fontSize: 15, fontWeight: 600, border: 'none', padding: '14px 28px', borderRadius: 8, minHeight: 48 }}>
+            <button className="btn-pri" style={{ fontFamily: SANS, background: TEXT, color: BG, fontSize: 15, fontWeight: 600, border: 'none', padding: '14px 28px', borderRadius: 8, minHeight: 48 }}>
               Transcribe your first file free
             </button>
             <button className="btn-sec" style={{ fontFamily: SANS, background: 'transparent', color: TSUB, fontSize: 15, border: `1px solid ${BORM}`, padding: '14px 24px', borderRadius: 8, minHeight: 48 }}>
@@ -275,8 +275,8 @@ export default function App() {
           </div>
           <div style={{ padding: '16px 28px 28px', display: 'flex', gap: 8 }}>
             {['.TXT', '.SRT', '.DOCX', 'API'].map((f, i) => (
-              <div key={i} style={{ flex: 1, background: i === 0 ? '#fff' : SURF2, borderRadius: 8, padding: '10px 0', textAlign: 'center', cursor: 'pointer', border: i === 0 ? 'none' : `1px solid ${BOR}` }}>
-                <div style={{ fontFamily: SANS, fontSize: 12, fontWeight: 700, color: i === 0 ? '#000' : TMUTE }}>{f}</div>
+              <div key={i} style={{ flex: 1, background: i === 0 ? TEXT : SURF2, borderRadius: 8, padding: '10px 0', textAlign: 'center', cursor: 'pointer', border: i === 0 ? 'none' : `1px solid ${BOR}` }}>
+                <div style={{ fontFamily: SANS, fontSize: 12, fontWeight: 700, color: i === 0 ? BG : TMUTE }}>{f}</div>
               </div>
             ))}
           </div>
@@ -310,13 +310,13 @@ export default function App() {
           </div>
           <div className="steps-g" style={grid('repeat(3,1fr)')}>
             {HOW_STEPS.map((s, i) => (
-                <div key={i} className={i === 1 ? '' : 'card-lift'} style={{ background: i === 1 ? '#fff' : SURF, padding: '36px 30px', position: 'relative', overflow: 'hidden' }}>
-                <div style={{ fontSize: 72, fontWeight: 800, color: i === 1 ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.03)', position: 'absolute', top: 8, right: 16, lineHeight: 1, letterSpacing: '-0.04em', userSelect: 'none' }}>{s.n}</div>
-                <div style={{ width: 40, height: 40, borderRadius: 10, background: i === 1 ? 'rgba(0,0,0,0.07)' : ACCENTB, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 20 }}>
-                  <i className={`ti ${s.icon}`} style={{ fontSize: 18, color: i === 1 ? '#000' : ACCENT }} />
+                <div key={i} className={i === 1 ? '' : 'card-lift'} style={{ background: i === 1 ? TEXT : SURF, padding: '36px 30px', position: 'relative', overflow: 'hidden' }}>
+                <div style={{ fontSize: 72, fontWeight: 800, color: i === 1 ? `${BG}14` : 'rgba(255,255,255,0.03)', position: 'absolute', top: 8, right: 16, lineHeight: 1, letterSpacing: '-0.04em', userSelect: 'none' }}>{s.n}</div>
+                <div style={{ width: 40, height: 40, borderRadius: 10, background: i === 1 ? `${BG}0D` : ACCENTB, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 20 }}>
+                  <i className={`ti ${s.icon}`} style={{ fontSize: 18, color: i === 1 ? BG : ACCENT }} />
                 </div>
-                <div style={{ fontSize: 18, fontWeight: 700, color: i === 1 ? '#000' : TEXT, marginBottom: 10, letterSpacing: '-0.01em' }}>{s.title}</div>
-                <div style={{ fontSize: 14, color: i === 1 ? '#444' : TSUB, lineHeight: 1.65 }}>{s.body}</div>
+                <div style={{ fontSize: 18, fontWeight: 700, color: i === 1 ? BG : TEXT, marginBottom: 10, letterSpacing: '-0.01em' }}>{s.title}</div>
+                <div style={{ fontSize: 14, color: i === 1 ? '#52525B' : TSUB, lineHeight: 1.65 }}>{s.body}</div>
               </div>
             ))}
           </div>
@@ -353,7 +353,7 @@ export default function App() {
               <p style={{ fontSize: 14, color: TSUB, lineHeight: 1.75, marginBottom: 24 }}>
                 {FOR_WHO[activeWho].body}
               </p>
-              <button className="btn-pri" style={{ fontFamily: SANS, background: '#F4EFE8', color: '#18170F', fontSize: 13, fontWeight: 600, border: 'none', padding: '10px 20px', borderRadius: 7, minHeight: 44 }}>
+              <button className="btn-pri" style={{ fontFamily: SANS, background: TEXT, color: BG, fontSize: 13, fontWeight: 600, border: 'none', padding: '10px 20px', borderRadius: 7, minHeight: 44 }}>
                 Try it free →
               </button>
             </div>
@@ -424,21 +424,21 @@ export default function App() {
             {TIERS.map((t, i) => (
               <div key={i} className={t.prime ? '' : 'card-lift'} style={{ background: t.prime ? TEXT : BG, padding: '28px 20px', position: 'relative' }}>
                 {t.prime && (
-                  <div style={{ position: 'absolute', top: -11, left: '50%', transform: 'translateX(-50%)', background: '#F4EFE8', color: '#18170F', fontSize: 10, fontWeight: 700, padding: '3px 10px', borderRadius: 100, whiteSpace: 'nowrap', fontFamily: SANS }}>
+                  <div style={{ position: 'absolute', top: -11, left: '50%', transform: 'translateX(-50%)', background: TEXT, color: BG, fontSize: 10, fontWeight: 700, padding: '3px 10px', borderRadius: 100, whiteSpace: 'nowrap', fontFamily: SANS }}>
                     Most popular
                   </div>
                 )}
                 <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: t.prime ? '#6A6860' : TMUTE, marginBottom: 10 }}>{t.name}</div>
-                <div style={{ fontSize: 30, fontWeight: 800, color: t.prime ? '#18170F' : TEXT, letterSpacing: '-0.03em', marginBottom: 2 }}>{t.price}</div>
+                <div style={{ fontSize: 30, fontWeight: 800, color: t.prime ? BG : TEXT, letterSpacing: '-0.03em', marginBottom: 2 }}>{t.price}</div>
                 <div style={{ fontSize: 12, color: t.prime ? '#A8A49C' : TMUTE, marginBottom: 16 }}>{t.period}</div>
-                <div style={{ fontSize: 12, color: t.prime ? '#6A6860' : TSUB, lineHeight: 1.55, marginBottom: 20, paddingBottom: 16, borderBottom: `1px solid ${t.prime ? 'rgba(0,0,0,0.08)' : BOR}` }}>{t.note}</div>
+                <div style={{ fontSize: 12, color: t.prime ? TSUB : TSUB, lineHeight: 1.55, marginBottom: 20, paddingBottom: 16, borderBottom: `1px solid ${t.prime ? 'rgba(0,0,0,0.08)' : BOR}` }}>{t.note}</div>
                 {t.items.map((item, ii) => (
                   <div key={ii} style={{ display: 'flex', gap: 8, alignItems: 'flex-start', marginBottom: 9 }}>
                     <i className="ti ti-check" style={{ fontSize: 12, color: t.prime ? '#16A34A' : GRN, marginTop: 3, flexShrink: 0 }} />
-                    <span style={{ fontSize: 12, color: t.prime ? '#18170F' : TSUB, lineHeight: 1.45 }}>{item}</span>
+                    <span style={{ fontSize: 12, color: t.prime ? BG : TSUB, lineHeight: 1.45 }}>{item}</span>
                   </div>
                 ))}
-                <button className={t.prime ? 'btn-pri' : 'btn-sec'} style={{ fontFamily: SANS, width: '100%', background: t.prime ? '#000' : 'transparent', color: t.prime ? '#fff' : TSUB, fontSize: 12, fontWeight: 600, border: `1px solid ${t.prime ? '#000' : BORM}`, padding: '10px 0', borderRadius: 6, minHeight: 44, marginTop: 20 }}>
+                <button className={t.prime ? 'btn-pri' : 'btn-sec'} style={{ fontFamily: SANS, width: '100%', background: t.prime ? BG : 'transparent', color: t.prime ? TEXT : TSUB, fontSize: 12, fontWeight: 600, border: `1px solid ${t.prime ? BG : BORM}`, padding: '10px 0', borderRadius: 6, minHeight: 44, marginTop: 20 }}>
                   {t.cta}
                 </button>
               </div>
@@ -473,7 +473,7 @@ export default function App() {
       <section style={{ padding: '0 32px 96px', ...wrap }}>
         <div style={{ background: '#F4EFE8', borderRadius: 20, padding: '64px 48px', display: 'grid', gridTemplateColumns: '1fr auto', gap: 48, alignItems: 'center', boxShadow: '0 32px 80px rgba(0,0,0,0.25)' }}>
           <div>
-            <h2 style={{ fontSize: 36, fontWeight: 700, lineHeight: 1.15, color: '#18170F', marginBottom: 12, letterSpacing: '-0.03em' }}>
+            <h2 style={{ fontSize: 36, fontWeight: 700, lineHeight: 1.15, color: BG, marginBottom: 12, letterSpacing: '-0.03em' }}>
               Your recordings hold more<br />
               <span style={{ color: '#606060' }}>value than you're extracting</span><br />
               from them.
@@ -488,7 +488,7 @@ export default function App() {
             </div>
           </div>
           <div style={{ textAlign: 'center' }}>
-            <button className="btn-pri" style={{ fontFamily: SANS, background: '#18170F', color: '#F4EFE8', fontSize: 15, fontWeight: 700, border: 'none', padding: '14px 32px', borderRadius: 10, minHeight: 48, marginBottom: 12, whiteSpace: 'nowrap' }}>
+            <button className="btn-pri" style={{ fontFamily: SANS, background: BG, color: TEXT, fontSize: 15, fontWeight: 700, border: 'none', padding: '14px 32px', borderRadius: 10, minHeight: 48, marginBottom: 12, whiteSpace: 'nowrap' }}>
               Upload your first file →
             </button>
             <div style={{ fontSize: 12, color: '#A8A49C' }}>Free plan · No card · Cancel anytime</div>
@@ -502,7 +502,7 @@ export default function App() {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
               <div style={{ width: 24, height: 24, borderRadius: 6, background: ACCENT, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <i className="ti ti-microphone" style={{ fontSize: 12, color: '#000' }} />
+                <i className="ti ti-microphone" style={{ fontSize: 12, color: BG }} />
               </div>
               <span style={{ fontSize: 14, fontWeight: 700, color: TEXT, letterSpacing: '-0.02em' }}>MediaScriber</span>
             </div>
