@@ -427,14 +427,14 @@ export default function App() {
                     Most popular
                   </div>
                 )}
-                <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: t.prime ? 'rgba(255,255,255,0.4)' : TMUTE, marginBottom: 10 }}>{t.name}</div>
-                <div style={{ fontSize: 30, fontWeight: 800, color: t.prime ? '#fff' : TEXT, letterSpacing: '-0.03em', marginBottom: 2 }}>{t.price}</div>
-                <div style={{ fontSize: 12, color: t.prime ? 'rgba(255,255,255,0.35)' : TMUTE, marginBottom: 16 }}>{t.period}</div>
-                <div style={{ fontSize: 12, color: t.prime ? 'rgba(255,255,255,0.55)' : TSUB, lineHeight: 1.55, marginBottom: 20, paddingBottom: 16, borderBottom: `1px solid ${t.prime ? 'rgba(255,255,255,0.08)' : BOR}` }}>{t.note}</div>
+                <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: t.prime ? '#6A6860' : TMUTE, marginBottom: 10 }}>{t.name}</div>
+                <div style={{ fontSize: 30, fontWeight: 800, color: t.prime ? '#18170F' : TEXT, letterSpacing: '-0.03em', marginBottom: 2 }}>{t.price}</div>
+                <div style={{ fontSize: 12, color: t.prime ? '#A8A49C' : TMUTE, marginBottom: 16 }}>{t.period}</div>
+                <div style={{ fontSize: 12, color: t.prime ? '#6A6860' : TSUB, lineHeight: 1.55, marginBottom: 20, paddingBottom: 16, borderBottom: `1px solid ${t.prime ? 'rgba(0,0,0,0.08)' : BOR}` }}>{t.note}</div>
                 {t.items.map((item, ii) => (
                   <div key={ii} style={{ display: 'flex', gap: 8, alignItems: 'flex-start', marginBottom: 9 }}>
-                    <i className="ti ti-check" style={{ fontSize: 12, color: t.prime ? 'rgba(255,255,255,0.55)' : GRN, marginTop: 3, flexShrink: 0 }} />
-                    <span style={{ fontSize: 12, color: t.prime ? 'rgba(255,255,255,0.72)' : TSUB, lineHeight: 1.45 }}>{item}</span>
+                    <i className="ti ti-check" style={{ fontSize: 12, color: t.prime ? '#16A34A' : GRN, marginTop: 3, flexShrink: 0 }} />
+                    <span style={{ fontSize: 12, color: t.prime ? '#18170F' : TSUB, lineHeight: 1.45 }}>{item}</span>
                   </div>
                 ))}
                 <button className={t.prime ? 'btn-pri' : 'btn-sec'} style={{ fontFamily: SANS, width: '100%', background: t.prime ? TEAL : 'transparent', color: t.prime ? '#fff' : TSUB, fontSize: 12, fontWeight: 600, border: `1px solid ${t.prime ? TEAL : BORM}`, padding: '10px 0', borderRadius: 6, minHeight: 44, marginTop: 20 }}>
