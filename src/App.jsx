@@ -234,10 +234,10 @@ export default function App() {
             99.5% accurate transcription
           </div>
           <h1 className="fade-up" style={{ fontSize: 52, fontWeight: 700, lineHeight: 1.05, color: TEXT, marginBottom: 20, letterSpacing: '-0.03em' }}>
-            Upload audio or video.<br />Get a searchable, speaker-labelled<br />transcript back.
+            Stop digging through hours<br />of audio. Find any quote,<br />any speaker, in seconds.
           </h1>
           <p className="fade-up" style={{ fontSize: 17, color: TSUB, lineHeight: 1.7, marginBottom: 36, maxWidth: 600, marginLeft: 'auto', marginRight: 'auto' }}>
-            Every speaker identified. Every line timestamped. Export as TXT, SRT, or DOCX — in minutes, not hours.
+            Upload audio or video. Get an accurate, speaker-labelled transcript in minutes — not hours.
           </p>
           <div className="fade-up hero-b" style={{ display: 'flex', gap: 10, justifyContent: 'center', marginBottom: 16 }}>
             <button className="btn-pri" style={{ fontFamily: SANS, background: TEXT, color: BG, fontSize: 15, fontWeight: 600, border: 'none', padding: '14px 28px', borderRadius: 8, minHeight: 48 }}>
